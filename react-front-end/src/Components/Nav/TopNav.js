@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function BottomNav() {
+export default function Nav() {
   return (
     <div>
-      BottomNav
+      Nav
     </div>
   )
 }
