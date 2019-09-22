@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function ActivitesFeed() {
+export default function ActivityCard() {
   return (
     <div>
-      Activities Feed
+      ActivityCard
     </div>
   )
 }
