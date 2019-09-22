@@ -18,13 +18,6 @@ import * as helpers from './Functions/helperFunctions';
 function App() {
 
   const StyledApp = styled.div `
-    /*
-    width: 100vw;
-    height: 100vh;
-    max-width: 480px;
-    border: 1px solid red;
-    overflow-y: scroll;
-    */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -59,8 +52,8 @@ function App() {
   };
 
 
-  // helpers.edit an item to an array in state
-  // if the id is not found in the array, no change takes place
+  // helpers.edit replaces an item in an array in state with an updated version
+  // if the id of the item is not found in the array, no change takes place
   const editActivity = (activity) => {
     helpers.edit(activity, activities, setActivities);
   };
@@ -70,6 +63,8 @@ function App() {
   };
 
 
+  console.log(activities);
+  console.log(insights);
 
 
   return (
