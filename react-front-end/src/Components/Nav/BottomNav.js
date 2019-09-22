@@ -20,9 +20,9 @@ export default function BottomNav() {
 
   return (
     <StyledBottomNav>
-      <Link to="/"><i class="fas fa-stream"></i></Link>
-      <Link to="/AddActivityForm"><i class="fas fa-plus"></i></Link>
-      <Link to="/Insights"><i class="fas fa-chart-bar"></i></Link>
+      <Link to="/"><i className="fas fa-stream"></i></Link>
+      <Link to="/AddActivityForm"><i className="fas fa-plus"></i></Link>
+      <Link to="/Insights"><i className="fas fa-chart-bar"></i></Link>
     </StyledBottomNav>
   )
 }
