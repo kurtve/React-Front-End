@@ -5,11 +5,10 @@ import styled from 'styled-components'
 export default function BottomNav() {
 
   const StyledBottomNav = styled.div `
-    box-sizing: border-box;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 480px;
+    width: 100%;
     height: 60px;
     display: flex;
     padding: 0 5%;

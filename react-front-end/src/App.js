@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -11,14 +11,20 @@ import Insights from './Components/Insights/Insights';
 import AddActivityForm from './Components/Activities/AddActivityForm';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
+/* functions for maintaining state etc */
+import * as helpers from './Functions/helperFunctions';
+
+
 function App() {
 
   const StyledApp = styled.div `
+    /*
     width: 100vw;
-    /*max-width: 480px;*/
     height: 100vh;
+    max-width: 480px;
     border: 1px solid red;
     overflow-y: scroll;
+    */
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -27,8 +33,8 @@ function App() {
 
 
 
-
-
+  const [activities, setActivities] = useState(helpers.initialActivities);
+  const [insights, setInsights] = useState(helpers.initialInsights);
 
 
 

@@ -8,19 +8,26 @@ export default function Nav({logo}) {
     position: fixed;
     top: 0;
     left: 0;
-    width: 480px;
-    padding: 2% 0;
+    width: 100%;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
     background: #00a0ba;
+    
+    .logo {
+      height: 50px;
+      width: auto;
+      fill: #00a0ba;
+    }
+
   `
 
   return (
     <StyledTopNav>
       <Link to="/">
-        <img src={logo} alt="Design Your Life Logo" style={{ height: '50px', width: 'auto', fill: '#00a0ba'}}/>
+        <img className='logo' src={logo} alt="Design Your Life" />
       </Link>
     </StyledTopNav>
   )
