@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 
-const StyledActivityCard = styled.div `
+const StyledConfirmDelete = styled.div `
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -13,6 +13,7 @@ const StyledActivityCard = styled.div `
 	border: 3px solid #00bc98;
 	border-radius: 20px;
 	padding: 10px;
+	margin-top: 140px;
 
 	h1 {
 		font-size: 3rem;
@@ -78,10 +79,17 @@ const StyledActivityCard = styled.div `
 `;
 
 
-export default function ActivityCard(props) {
+export default function ConfirmDelete(props) {
 
+	return (
+		<StyledConfirmDelete>
+			<h1>Confirm Delete Will Go Here!</h1>
+		</StyledConfirmDelete>
+	);
+
+/*
 	const deleteActivity = (id) => {
-		props.history.push(`/deleteactivity/${id}`);
+		props.history.push(`/activities/${id}`);
 	};
 
 	const editActivity = (id) => {
@@ -104,4 +112,6 @@ export default function ActivityCard(props) {
     		</div>
 		</StyledActivityCard>
 	);
+*/
+
 }

@@ -23,14 +23,14 @@ const StyledActivitiesFeed = styled.div `
 export default function ActivitesFeed(props) {
 
 	console.log(props);
-	
+
 	return (
     	<StyledActivitiesFeed>
     		<h1>Activities</h1>
 
     		{props.activities.map(act => {
     			return (
-    				<ActivityCard key={act.id} activity={act} deleteActivity={props.deleteActivity} />
+    				<ActivityCard key={act.id} activity={act} {...props} />
     			);
     		})}
 

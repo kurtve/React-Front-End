@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import Nav from './Components/Nav/Nav';
 import Welcome from './Components/Welcome/Welcome';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
-import ActivityCard from './Components/Activities/ActivityCard';
+import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
 import AddActivityForm from './Components/Activities/AddActivityForm';
 import EditActivityForm from './Components/Activities/EditActivityForm';
@@ -72,8 +72,8 @@ function App() {
         <ActivitiesFeed {...props} activities={activities} />
       )} />
 
-      <Route path='/activities/:id' render={(props) => (
-        <ActivityCard {...props} activities={activities} deleteActivity={deleteActivity} />
+      <Route path='/deleteactivity/:id' render={(props) => (
+        <ConfirmDelete {...props} activities={activities} deleteActivity={deleteActivity} />
       )} />
 
       <Route path='/insights' render={(props) => (
