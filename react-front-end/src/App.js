@@ -6,6 +6,7 @@ import ActivitiesFeed from './Components/ActivitiesFeed/ActivitesFeed';
 import Insights from './Components/Insights/Insights';
 import AddActivityForm from './Components/ActivitiesFeed/AddActivityForm';
 import ActivityCard from './Components/ActivitiesFeed/ActivityCard';
+import Welcome from './Components/Welcome/Welcome';
 import styled from 'styled-components';
 
 function App() {
@@ -25,10 +26,11 @@ function App() {
     <StyledApp>
      <Nav logo={logo} />
 
-     <Route exact path="/" component={ActivitiesFeed} />
-     <Route path="/Insights" component={Insights} />
-     <Route path="/AddActivityForm" component={AddActivityForm} />
-     <Route path="/AddActivityForm:id" component={ActivityCard} />
+     <Route exact path="/" component={Welcome} />
+     <Route path="/insights" component={Insights} />
+     <Route path="/addactivity" component={AddActivityForm} />
+     <Route path="/activities" component={ActivitiesFeed} />
+     <Route path="/activities/:id" component={ActivityCard} />
 
     </StyledApp>
   );
