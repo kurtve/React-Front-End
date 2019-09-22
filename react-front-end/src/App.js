@@ -37,18 +37,68 @@ function App() {
   const [insights, setInsights] = useState(helpers.initialInsights);
 
 
+  // helpers.add adds an item to an array in state
+  // it will add an id and timestamp to the object before adding it to the list
+  const addActivity = (newActivity) => {
+    helpers.add(newActivity, activities, setActivities);
+  };
+
+  const addInsight = (newInsight) => {
+    helpers.add(newInsight, insights, setInsights);
+  };
+
+
+  // helpers.delete removes an item to an array in state
+  // if the id is not found in the array, no change takes place
+  const deleteActivity = (activityId) => {
+    helpers.remove(activityId, activities, setActivities);
+  };
+
+  const deleteInsight = (insightId) => {
+    helpers.remove(insightId, insights, setInsights);
+  };
+
+
+  // helpers.edit an item to an array in state
+  // if the id is not found in the array, no change takes place
+  const editActivity = (activity) => {
+    helpers.edit(activity, activities, setActivities);
+  };
+
+  const editInsight = (insight) => {
+    helpers.edit(insight, insights, setInsights);
+  };
+
+
 
 
   return (
     <StyledApp>
-     <Nav logo={logo} />
 
-     <Route exact path="/" component={Welcome} />
-     <Route path="/activities" component={ActivitiesFeed} />
-     <Route path="/activities/:id" component={ActivityCard} />
-     <Route path="/insights" component={Insights} />
-     <Route path="/editactivity/:id" component={EditActivityForm} />
-     <Route path="/addactivity" component={AddActivityForm} />
+      <Nav logo={logo} />
+
+      <Route exact path="/" component={Welcome} />
+
+      <Route path='/activities' render={(props) => (
+        <ActivitiesFeed {...props} activities={activities} />
+      )} />
+
+      <Route path='/activities/:id' render={(props) => (
+        <ActivityCard {...props} activities={activities} deleteActivity={deleteActivity} />
+      )} />
+
+      <Route path='/insights' render={(props) => (
+        <Insights {...props} insights={insights} activities={activities}
+         addInsight={addInsight} editInsight={editInsight} deleteInsight={deleteInsight} />
+      )} />
+
+      <Route path='/addactivity' render={(props) => (
+        <AddActivityForm {...props} addActivity={addActivity} />
+      )} />
+
+      <Route path='/editactivity/:id' render={(props) => (
+        <EditActivityForm {...props} editActivity={editActivity} />
+      )} />
 
     </StyledApp>
   );

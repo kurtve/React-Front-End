@@ -70,3 +70,21 @@ export const initialInsights = [
 ];
 
 
+export const add = (newItem, itemList, setList) => {
+
+	return;
+};
+
+
+
+export const edit = (item, itemList, setList) => {
+
+	return;
+}
+
+
+export const remove = (itemId, itemList, setList) => {
+
+	return;
+};
+
