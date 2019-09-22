@@ -14,7 +14,7 @@ export default function Nav({logo}) {
     justify-content: center;
     align-items: center;
     height: auto;
-    background: #00a0ba;
+    background: #00bc98;
     
     .logo {
       height: 50px;

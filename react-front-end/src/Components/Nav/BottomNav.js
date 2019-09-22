@@ -11,17 +11,24 @@ export default function BottomNav() {
     width: 100%;
     height: 60px;
     display: flex;
-    padding: 0 5%;
+    padding: 0 10%;
     justify-content: space-between;
     align-items: center;
-    background: #00a0ba;
+    background: #00bc98;
+
+    i {
+      font-size: 1.8rem;
+      color: white;
+
+    }
   `
 
   return (
     <StyledBottomNav>
-      <Link to="/"><i className="fas fa-stream"></i></Link>
-      <Link to="/AddActivityForm"><i className="fas fa-plus"></i></Link>
-      <Link to="/Insights"><i className="fas fa-chart-bar"></i></Link>
+      <Link to="/"><i className="fas fa-home"></i></Link>
+      <Link to='/activities'><i className="fas fa-walking"></i></Link>
+      <Link to="/addactivity"><i className="fas fa-plus"></i></Link>
+      <Link to="/insights"><i className="fas fa-lightbulb"></i></Link>
     </StyledBottomNav>
   )
 }

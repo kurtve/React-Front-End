@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
-import logo from './Assets/logo.svg';
 import Nav from './Components/Nav/Nav';
 import Welcome from './Components/Welcome/Welcome';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
@@ -11,7 +10,7 @@ import Insights from './Components/Insights/Insights';
 import AddActivityForm from './Components/Activities/AddActivityForm';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
-/* functions for maintaining state etc */
+/* functions for maintaining state, etc */
 import * as helpers from './Functions/helperFunctions';
 
 
@@ -23,7 +22,6 @@ function App() {
     justify-content: space-around;
     align-items: center;
   `
-
 
 
   const [activities, setActivities] = useState(helpers.initialActivities);
@@ -63,14 +61,10 @@ function App() {
   };
 
 
-  console.log(activities);
-  console.log(insights);
-
-
   return (
     <StyledApp>
 
-      <Nav logo={logo} />
+      <Nav />
 
       <Route exact path="/" component={Welcome} />
 

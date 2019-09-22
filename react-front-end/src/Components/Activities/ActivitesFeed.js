@@ -1,22 +1,39 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import ActivityCard from './ActivityCard';
+
 
 const StyledActivitiesFeed = styled.div `
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	flex-direction: flex-start;
-	margin-top: 60px;
+	margin: 100px 0;
+	width: 90%;
+
+	h1 {
+		font-size: 3rem;
+		margin: 20px;
+
+	}
 `;
 
 
-
-
 export default function ActivitesFeed(props) {
-  return (
-    <StyledActivitiesFeed>
-      <h1>ActivitiesFeed</h1>
-    </StyledActivitiesFeed>
-  )
+
+	console.log(props);
+	
+	return (
+    	<StyledActivitiesFeed>
+    		<h1>Activities</h1>
+
+    		{props.activities.map(act => {
+    			return (
+    				<ActivityCard key={act.id} activity={act} deleteActivity={props.deleteActivity} />
+    			);
+    		})}
+
+		</StyledActivitiesFeed>
+	);
 }
