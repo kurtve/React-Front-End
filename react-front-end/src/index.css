@@ -1,4 +1,14 @@
+/* global style settings */
+
 @import url("https://use.typekit.net/hwf0dil.css");
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
 
 body {
   margin: 0;
@@ -12,3 +22,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+

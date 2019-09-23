@@ -1,19 +1,18 @@
-import React from 'react'
-import { useMediaQuery } from 'react-responsive'
-import TopNav from './TopNav'
-import BottomNav from './BottomNav'
-import SideNav from './SideNav'
+import React from 'react';
 
-export default function Nav({logo}) {
+import TopNav from './TopNav';
+import BottomNav from './BottomNav';
 
-  const isDesktop = useMediaQuery({ query: '(min-device-width: 968px)' })
-  const isMobile = useMediaQuery({ query: '(max-device-width: 480px)' })
+
+export default function Nav() {
+
 
   return (
     <div>
-      {isDesktop && <SideNav />}
-      {isMobile && <TopNav logo={logo} />}
-      {isMobile && <BottomNav />}
+
+      <TopNav />
+      <BottomNav />
+
     </div>
   )
 }
