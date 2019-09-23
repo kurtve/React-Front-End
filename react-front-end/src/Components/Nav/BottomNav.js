@@ -11,10 +11,16 @@ export default function BottomNav() {
     width: 100%;
     height: 60px;
     display: flex;
-    padding: 0 5%;
+    padding: 0 10%;
     justify-content: space-between;
     align-items: center;
-    background: #00a0ba;
+    background: #00bc98;
+
+    i {
+      font-size: 1.8rem;
+      color: white;
+
+    }
   `
 
   return (
