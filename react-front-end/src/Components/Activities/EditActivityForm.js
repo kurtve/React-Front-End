@@ -6,8 +6,4 @@ export default function EditActivityForm(props) {
       EditActivityForm
     </div>
   )
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> a92c8e45688f7bf4612ba494be44ffa16d89edf6

@@ -25,9 +25,10 @@ export default function BottomNav() {
 
   return (
     <StyledBottomNav>
-      <Link to="/activities"><i className="fas fa-stream"></i></Link>
-      <Link to="/AddActivityForm"><i className="fas fa-plus"></i></Link>
-      <Link to="/Insights"><i className="fas fa-chart-bar"></i></Link>
+      <Link to="/"><i className="fas fa-home"></i></Link>
+      <Link to='/activities'><i className="fas fa-walking"></i></Link>
+      <Link to="/addactivity"><i className="fas fa-plus"></i></Link>
+      <Link to="/insights"><i className="fas fa-lightbulb"></i></Link>
     </StyledBottomNav>
   )
 }
