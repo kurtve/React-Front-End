@@ -66,20 +66,65 @@ export const initialInsights = [{
 }];
 
 
-export const add = (newItem, itemList, setList) => {
+// replace icon with a resource link for image file
+export const categories = [{
+    id: 0,
+    name: 'Fitness',
+    icon: null
+  },
+  {
+    id: 1,
+    name: 'Creative',
+    icon: null
+  },
+  {
+    id: 2,
+    name: 'Professional Development',
+    icon: null
+  },
+  {
+    id: 3,
+    name: 'Dirty Work',
+    icon: null
+  }
+];
 
-  return;
+
+
+// get the max id currently in the list
+const getMaxId = (itemList) => {
+  return itemList.reduce((accum, item) => Math.max(accum, item.id), -1);
 };
 
 
 
-export const edit = (item, itemList, setList) => {
+// add a new item to a list
+export const add = (newItem, itemList, setList) => {
+  newItem.created = (new Date()).toUTCString();
+  newItem.updated = null;
+  newItem.id = getMaxId(itemList) + 1;
+  setList([...itemList, newItem]);
+};
 
-  return;
-}
+
+// replace an item in a list
+export const edit = (item, itemList, setList) => {
+  const index = itemList.findIndex(e => e.id === item.id);
+  // if index was not found, do nothing
+  if (index < 0) return;
+  // replace the old version of item with the updated version
+  // first populate the update date field
+  item.updated = (new Date()).toUTCString();
+  const newItemList = itemList.slice(0, index).concat([item]).concat(itemList.slice(index + 1));
+  setList(newItemList);
+};
 
 
 export const remove = (itemId, itemList, setList) => {
-
-  return;
+  const index = itemList.findIndex(e => e.id === itemId);
+  // if index was not found, do nothing
+  if (index < 0) return;
+  // remove the item from the list
+  const newItemList = itemList.slice(0, index).concat(itemList.slice(index + 1));
+  setList(newItemList);
 };

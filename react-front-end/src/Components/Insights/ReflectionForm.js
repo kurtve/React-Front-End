@@ -3,9 +3,8 @@ import React, { useState } from 'react'
 export default function ReflectionForm(props) {
   
   const initialValue = [{
-    id: null,
-    text: '',
-    date: ''
+    reflection: '',
+    weekOf: ''
   }]
 
   const [ reflection, setReflection ] = useState(initialValue)
@@ -15,16 +14,13 @@ export default function ReflectionForm(props) {
       ...reflection,
       [e.target.name]: e.target.value
     })
-    // console.log(reflection)
+    console.log(reflection)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    props.addInsight([
-      ...props.insights,
-      reflection
-    ])
-    console.log(reflection)
+    props.addInsight(reflection)
+    console.log(props.insights)
     setReflection(initialValue)
   }
 
@@ -33,13 +29,13 @@ export default function ReflectionForm(props) {
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          name="text"
+          name="reflection"
           placeholder="Reflect on your week."
           onChange={handleChange}
         />
         <input
           type="date"
-          name="date"
+          name="weekOf"
           onChange={handleChange}
         />
         <button type="submit">Submit</button>

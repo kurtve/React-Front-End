@@ -1,7 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 import ReflectionForm from './ReflectionForm'
 import styled from 'styled-components'
-// import { edit } from '../../Functions/helperFunctions'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 
@@ -127,21 +126,18 @@ export default function Insights({ insights, activities, addInsight, editInsight
         editInsight={editInsight}
         deleteInsight={deleteInsight}
       />
-
-
+      
       </StyledInsights>
 
-      <div>
-        {insights.map((item, index) => {
-          return(
-            <StyledReflectionCard key={index}>
-              <h3>Reflection Entry:</h3>
-              <p>{item.reflection}</p>
-              <p>{item.created}</p>
-            </StyledReflectionCard>
-          )
-        })}
-      </div>
+      {insights.map((item, index) => {
+        return(
+          <StyledReflectionCard key={index}>
+            <h3>Reflection Entry:</h3>
+            <p>{item.reflection}</p>
+            <p>{item.weekOf}</p>
+          </StyledReflectionCard>
+        )
+      })}
       
     </>
   )
