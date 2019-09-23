@@ -75,7 +75,7 @@ function App() {
   return (
     <StyledApp>
 
-      <Nav logo={logo} />
+      <Nav />
 
       <Route exact path="/" component={Welcome} />
 
