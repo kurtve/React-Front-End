@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Nav from './Components/Nav/Nav';
+
 import Welcome from './Components/Welcome/Welcome';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';

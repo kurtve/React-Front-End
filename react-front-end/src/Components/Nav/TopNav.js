@@ -1,8 +1,9 @@
 import React from 'react'
+import logo from '../../Assets/logo.svg';
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
-export default function Nav({logo}) {
+export default function Nav() {
 
   const StyledTopNav = styled.div `
     position: fixed;

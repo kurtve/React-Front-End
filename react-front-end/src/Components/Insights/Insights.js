@@ -84,6 +84,7 @@ export default function Insights() {
           })}
         </StyledWeekContainer>
       </div>
+
       <ReflectionForm reflectionsList={reflectionsList} setReflectionsList={setReflectionsList} />
       {reflectionsList.map((item, index) => {
         return(
