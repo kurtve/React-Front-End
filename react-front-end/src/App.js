@@ -3,7 +3,6 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Nav from './Components/Nav/Nav';
-
 import Welcome from './Components/Welcome/Welcome';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
@@ -11,9 +10,9 @@ import Insights from './Components/Insights/Insights';
 import AddActivityForm from './Components/Activities/AddActivityForm';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
+
 /* functions for maintaining state, etc */
 import * as helpers from './Functions/helperFunctions';
-
 
 function App() {
 
@@ -51,8 +50,8 @@ function App() {
   };
 
 
-  // helpers.edit replaces an item in an array in state with an updated version
-  // if the id of the item is not found in the array, no change takes place
+  // helpers.edit an item to an array in state
+  // if the id is not found in the array, no change takes place
   const editActivity = (activity) => {
     helpers.edit(activity, activities, setActivities);
   };
@@ -71,10 +70,6 @@ function App() {
 
       <Route path='/activities' render={(props) => (
         <ActivitiesFeed {...props} activities={activities} />
-      )} />
-
-      <Route path='/deleteactivity/:id' render={(props) => (
-        <ConfirmDelete {...props} activities={activities} deleteActivity={deleteActivity} />
       )} />
 
       <Route path='/insights' render={(props) => (

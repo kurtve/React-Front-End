@@ -9,23 +9,19 @@ const StyledWelcome = styled.div `
 	align-items: center;
 	flex-direction: flex-start;
 	margin-top: 100px;
-
 	h1 {
 		font-size: 6rem;
 		margin: 20px;
 	}
-
 	h3 {
 		font-size: 3rem;
 		margin: 20px;
 	}
-
 	.navlinks {
 		display: flex;
 		flex-direction: column;
 		margin: 20px;
 	}
-
 	.navlinks a {
 		font-size: 2.4rem;
 		text-decoration: none;
@@ -38,13 +34,11 @@ const StyledWelcome = styled.div `
 		justify-content: center;
 		align-items: center;
 		border-radius: 10px;
-
 		i {
 			font-size: 1.6rem;
 			margin-right: 20px;
 		}
 	}
-
 `;
 
 
@@ -63,4 +57,3 @@ export default function Welcome() {
     </StyledWelcome>
   )
 }
-

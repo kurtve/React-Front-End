@@ -9,7 +9,7 @@ export default function Nav() {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     padding: 15px 0;
     display: flex;
     justify-content: center;
@@ -20,9 +20,7 @@ export default function Nav() {
     .logo {
       height: 50px;
       width: auto;
-      fill: #00a0ba;
     }
-
   `
 
   return (

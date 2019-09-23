@@ -11,11 +11,9 @@ const StyledActivitiesFeed = styled.div `
 	flex-direction: flex-start;
 	margin: 100px 0;
 	width: 90%;
-
 	h1 {
 		font-size: 3rem;
 		margin: 20px;
-
 	}
 `;
 
