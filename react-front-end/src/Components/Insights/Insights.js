@@ -24,7 +24,13 @@ export default function Insights({ insights, activities, addInsight, editInsight
       & > * {
         margin-bottom: 10px;
       }
-      & input {
+      & textarea {
+        resize: none;
+      }
+      & input, & textarea {
+        width: 85%;
+        margin: 2% auto;
+        padding: 0 5%;
         font-family: inherit;
         font-size: 1.6rem;
         border: none;
@@ -37,12 +43,18 @@ export default function Insights({ insights, activities, addInsight, editInsight
         font-weight: 500;
         letter-spacing: .15rem;
         width: auto;
-        margin: auto;
-        border: none;
+        margin: 15px auto 0 auto;
+        border: 1px solid transparent;
         border-radius: 10px;
         padding: 2% 4%;
         color: white;
         text-transform: uppercase;
+        &:hover {
+          color: #ec8b76;
+          background: white;
+          border: 1px solid #ec8b76;
+          cursor: pointer;
+        }
       }
     }
   `
@@ -51,14 +63,13 @@ export default function Insights({ insights, activities, addInsight, editInsight
     height: auto;
     width: 400px;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,.1);
     & .card-inner {
       margin: 0 auto;
       padding: 30px 0;
       width: 95%;
-      border: 1px solid rgba(0,0,0,.1);
+      border: 3px solid #00a0ba;
       border-radius: 10px;
-      box-shadow: 0 .5rem .5rem rgba(0,0,0,.4);
+      box-shadow: 0 .25rem .75rem rgba(0,0,0,.4);
     }
   `
 
@@ -69,7 +80,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
   `
 
   const StyledReflectionCard = styled.div `
-    width: 80%;
+    max-width: 50%;
     padding: 5%;
     font-size: 1.6rem;
     margin-top: 20px;
@@ -85,6 +96,9 @@ export default function Insights({ insights, activities, addInsight, editInsight
     & p {
       text-align: center;
     }
+    &:last-child {
+      margin-bottom: 80px;
+    }
   `
 
   return (
@@ -96,12 +110,12 @@ export default function Insights({ insights, activities, addInsight, editInsight
         <StyledWeekContainer>
 
           <Slider
-            speed={500}
+            speed={750}
             slidesToShow={1}
             slidesToScroll={1}
             infinite={false}
-            autoplay={true}
-            autoplaySpeed={5000} 
+            autoplay={false}
+            autoplaySpeed={6000} 
             arrows={false}
           >
             {activities.map((entry, index) => {
