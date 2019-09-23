@@ -5,11 +5,10 @@ import styled from 'styled-components'
 export default function BottomNav() {
 
   const StyledBottomNav = styled.div `
-    box-sizing: border-box;
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 480px;
+    width: 100%;
     height: 60px;
     display: flex;
     padding: 0 5%;
@@ -20,9 +19,9 @@ export default function BottomNav() {
 
   return (
     <StyledBottomNav>
-      <Link to="/"><i class="fas fa-stream"></i></Link>
-      <Link to="/AddActivityForm"><i class="fas fa-plus"></i></Link>
-      <Link to="/Insights"><i class="fas fa-chart-bar"></i></Link>
+      <Link to="/activities"><i className="fas fa-stream"></i></Link>
+      <Link to="/AddActivityForm"><i className="fas fa-plus"></i></Link>
+      <Link to="/Insights"><i className="fas fa-chart-bar"></i></Link>
     </StyledBottomNav>
   )
 }

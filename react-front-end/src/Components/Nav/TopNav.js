@@ -5,22 +5,27 @@ import { Link } from 'react-router-dom'
 export default function Nav({logo}) {
 
   const StyledTopNav = styled.div `
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
-    width: 480px;
-    padding: 2% 0;
+    width: 100vw;
+    padding: 15px 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: auto;
     background: #00a0ba;
+    
+    .logo {
+      height: 50px;
+      width: auto;
+    }
   `
 
   return (
     <StyledTopNav>
       <Link to="/">
-        <img src={logo} alt="Design Your Life Logo" style={{ height: '50px', width: 'auto', fill: '#00a0ba'}}/>
+        <img className='logo' src={logo} alt="Design Your Life" />
       </Link>
     </StyledTopNav>
   )
