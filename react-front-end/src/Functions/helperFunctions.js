@@ -28,9 +28,9 @@ export const initialActivities = [{
     id: '2',
     name: 'Coding',
     category: 'Professional Development',
-    notes: 'fucking Lambda School build week crap',
+    notes: 'Lambda School build week, day 6...it could have gone better',
     rating: '2',
-    time: 90,
+    time: 180,
     created: dummyDateString,
     updated: null
   },
