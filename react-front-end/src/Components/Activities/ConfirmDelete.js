@@ -81,37 +81,34 @@ const StyledConfirmDelete = styled.div `
 
 export default function ConfirmDelete(props) {
 
+	const deleteActivity = (id) => {
+		console.log(`delete activity ${id}`);
+		props.history.push('/activities');
+	};
+
+	const cancel = () => {
+		props.history.push('/activities');
+	};
+
 	return (
-		<StyledConfirmDelete>
-			<h1>Confirm Delete Will Go Here!</h1>
+    	<StyledConfirmDelete>
+    		<div className='footer'>
+    			<button onClick={cancel}
+    			 className='cancel'>Cancel</button>
+	    		<button onClick={() => deleteActivity(1)}
+	    		 className='delete'>Confirm Delete</button>
+    		</div>
 		</StyledConfirmDelete>
 	);
 
+}
+
+
 /*
-	const deleteActivity = (id) => {
-		props.history.push(`/activities/${id}`);
-	};
-
-	const editActivity = (id) => {
-		props.history.push(`/editactivity/${id}`);
-	};
-
-	return (
-    	<StyledActivityCard>
 	    	<div className='name'>{props.activity.name}</div>
     		<div className='category'>Category: {props.activity.category}</div>
     		<div className='rating'>Rating: {props.activity.rating}</div>
     		<div className='notes'>{props.activity.notes}</div>
     		<div className='timestamps'>Created: {props.activity.created.substring(0, 16)}
     			{props.activity.updated && `Updated: ${props.activity.updated.substring(0, 16)}`}</div>
-    		<div className='footer'>
-    			<button onClick={() => editActivity(props.activity.id)}
-    			 className='edit'>Edit</button>
-	    		<button onClick={() => deleteActivity(props.activity.id)}
-	    		 className='delete'>Delete</button>
-    		</div>
-		</StyledActivityCard>
-	);
 */
-
-}

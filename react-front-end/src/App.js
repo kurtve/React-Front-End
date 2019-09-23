@@ -72,6 +72,10 @@ function App() {
         <ActivitiesFeed {...props} activities={activities} />
       )} />
 
+      <Route path='/deleteactivity/:id' render={(props) => (
+        <ConfirmDelete {...props} activities={activities} deleteActivity={deleteActivity} />
+      )} />
+
       <Route path='/insights' render={(props) => (
         <Insights {...props} insights={insights} activities={activities}
          addInsight={addInsight} editInsight={editInsight} deleteInsight={deleteInsight} />
