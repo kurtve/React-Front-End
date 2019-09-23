@@ -1,0 +1,9 @@
+[build]
+base = "react-front-end/"
+publish = "/build/"
+command = "npm build"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
