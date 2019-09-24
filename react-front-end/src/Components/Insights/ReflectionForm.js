@@ -27,7 +27,7 @@ export default function ReflectionForm(props) {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
+        <textarea
           type="text"
           name="reflection"
           placeholder="Reflect on your week."

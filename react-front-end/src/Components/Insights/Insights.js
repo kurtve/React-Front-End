@@ -24,7 +24,13 @@ export default function Insights({ insights, activities, addInsight, editInsight
       & > * {
         margin-bottom: 10px;
       }
-      & input {
+      & textarea {
+        resize: none;
+      }
+      & input, & textarea {
+        width: 85%;
+        margin: 2% auto;
+        padding: 0 5%;
         font-family: inherit;
         font-size: 1.6rem;
         border: none;
@@ -37,12 +43,18 @@ export default function Insights({ insights, activities, addInsight, editInsight
         font-weight: 500;
         letter-spacing: .15rem;
         width: auto;
-        margin: auto;
-        border: none;
+        margin: 15px auto 0 auto;
+        border: 1px solid transparent;
         border-radius: 10px;
         padding: 2% 4%;
         color: white;
         text-transform: uppercase;
+        &:hover {
+          color: #ec8b76;
+          background: white;
+          border: 1px solid #ec8b76;
+          cursor: pointer;
+        }
       }
     }
   `
@@ -51,30 +63,33 @@ export default function Insights({ insights, activities, addInsight, editInsight
     height: auto;
     width: 400px;
     border-radius: 10px;
-    border: 1px solid rgba(0,0,0,.1);
     & .card-inner {
       margin: 0 auto;
       padding: 30px 0;
       width: 95%;
-      border: 1px solid rgba(0,0,0,.1);
+      border: 3px solid #00a0ba;
       border-radius: 10px;
-      box-shadow: 0 .5rem .5rem rgba(0,0,0,.4);
+      box-shadow: 0 .25rem .75rem rgba(0,0,0,.4);
     }
   `
 
-  const StyledWeekCard = styled.div `
+  const StyledActivityCard = styled.div `
     margin: 20px 0;
     padding: 3%;
     outline: none;
+    & h3 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
   `
 
   const StyledReflectionCard = styled.div `
-    width: 80%;
-    padding: 5%;
+    max-width: 375px;
+    padding: 3% 5%;
     font-size: 1.6rem;
     margin-top: 20px;
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 3px solid #d9eeff;
     box-shadow: 0 1rem 1rem rgba(0,0,0,.6);
     & > * {
       margin-bottom: 10px;
@@ -84,6 +99,14 @@ export default function Insights({ insights, activities, addInsight, editInsight
     }
     & p {
       text-align: center;
+    }
+    & p.date {
+      text-align: right;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+    &:last-child {
+      margin-bottom: 80px;
     }
   `
 
@@ -96,24 +119,23 @@ export default function Insights({ insights, activities, addInsight, editInsight
         <StyledWeekContainer>
 
           <Slider
-            speed={500}
+            speed={750}
             slidesToShow={1}
             slidesToScroll={1}
             infinite={false}
-            autoplay={true}
-            autoplaySpeed={5000} 
+            autoplay={false}
+            autoplaySpeed={6000} 
             arrows={false}
           >
             {activities.map((entry, index) => {
               return(
-                <StyledWeekCard key={index}>
+                <StyledActivityCard key={index}>
                   <div className="card-inner">
-                    <h3>{entry.name}</h3>
-                    <p>{entry.category}</p>
+                    <h3>{entry.name} | <span>{entry.category}</span></h3>
                     <p>Rating: {entry.rating}</p>
                     <p>{(entry.time / 60).toFixed(1)} hours</p>
                   </div>
-                </StyledWeekCard>
+                </StyledActivityCard>
               )
             })}
           </Slider>
@@ -134,7 +156,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
           <StyledReflectionCard key={index}>
             <h3>Reflection Entry:</h3>
             <p>{item.reflection}</p>
-            <p>{item.weekOf}</p>
+            <p className="date">week of {item.weekOf}</p>
           </StyledReflectionCard>
         )
       })}
