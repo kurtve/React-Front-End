@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -24,41 +24,51 @@ function App() {
   `
 
 
-  const [activities, setActivities] = useState(helpers.initialActivities);
-  const [insights, setInsights] = useState(helpers.initialInsights);
+  const [activities, setActivities] = useState([]);
+  const [insights, setInsights] = useState([]);
+
+
+  // one-time call to initialize state with persistent local storage
+  // pass an empty array as the 2nd arg to not use dummy data
+  useEffect(() => {
+    helpers.initialize('DYL_activities', helpers.initialActivities, setActivities);
+    helpers.initialize('DYL_insights', helpers.initialInsights, setInsights);
+  }, []);
+
 
 
   // helpers.add adds an item to an array in state
   // it will add an id and timestamp to the object before adding it to the list
   const addActivity = (newActivity) => {
-    helpers.add(newActivity, activities, setActivities);
+    helpers.add('DYL_activities', newActivity, activities, setActivities);
   };
 
   const addInsight = (newInsight) => {
-    helpers.add(newInsight, insights, setInsights);
+    helpers.add('DYL_insights', newInsight, insights, setInsights);
   };
 
 
   // helpers.delete removes an item to an array in state
   // if the id is not found in the array, no change takes place
   const deleteActivity = (activityId) => {
-    helpers.remove(activityId, activities, setActivities);
+    helpers.remove('DYL_activities', activityId, activities, setActivities);
   };
 
   const deleteInsight = (insightId) => {
-    helpers.remove(insightId, insights, setInsights);
+    helpers.remove('DYL_insights', insightId, insights, setInsights);
   };
 
 
   // helpers.edit an item to an array in state
   // if the id is not found in the array, no change takes place
   const editActivity = (activity) => {
-    helpers.edit(activity, activities, setActivities);
+    helpers.edit('DYL_activities', activity, activities, setActivities);
   };
 
   const editInsight = (insight) => {
-    helpers.edit(insight, insights, setInsights);
+    helpers.edit('DYL_insights', insight, insights, setInsights);
   };
+
 
 
   return (
