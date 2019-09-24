@@ -1,6 +1,6 @@
 [build]
 base = "react-front-end/"
-publish = "/build/"
+publish = "build/"
 command = "npm build"
 
 [[redirects]]
