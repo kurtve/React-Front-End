@@ -73,19 +73,23 @@ export default function Insights({ insights, activities, addInsight, editInsight
     }
   `
 
-  const StyledWeekCard = styled.div `
+  const StyledActivityCard = styled.div `
     margin: 20px 0;
     padding: 3%;
     outline: none;
+    & h3 {
+      font-size: 1.8rem;
+      text-transform: uppercase;
+    }
   `
 
   const StyledReflectionCard = styled.div `
-    max-width: 50%;
-    padding: 5%;
+    max-width: 375px;
+    padding: 3% 5%;
     font-size: 1.6rem;
     margin-top: 20px;
     border-radius: 10px;
-    border: 1px solid rgba(0, 0, 0, .1);
+    border: 3px solid #d9eeff;
     box-shadow: 0 1rem 1rem rgba(0,0,0,.6);
     & > * {
       margin-bottom: 10px;
@@ -95,6 +99,11 @@ export default function Insights({ insights, activities, addInsight, editInsight
     }
     & p {
       text-align: center;
+    }
+    & p.date {
+      text-align: right;
+      font-size: 1.2rem;
+      font-style: italic;
     }
     &:last-child {
       margin-bottom: 80px;
@@ -120,14 +129,13 @@ export default function Insights({ insights, activities, addInsight, editInsight
           >
             {activities.map((entry, index) => {
               return(
-                <StyledWeekCard key={index}>
+                <StyledActivityCard key={index}>
                   <div className="card-inner">
-                    <h3>{entry.name}</h3>
-                    <p>{entry.category}</p>
+                    <h3>{entry.name} | <span>{entry.category}</span></h3>
                     <p>Rating: {entry.rating}</p>
                     <p>{(entry.time / 60).toFixed(1)} hours</p>
                   </div>
-                </StyledWeekCard>
+                </StyledActivityCard>
               )
             })}
           </Slider>
@@ -148,7 +156,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
           <StyledReflectionCard key={index}>
             <h3>Reflection Entry:</h3>
             <p>{item.reflection}</p>
-            <p>{item.weekOf}</p>
+            <p className="date">week of {item.weekOf}</p>
           </StyledReflectionCard>
         )
       })}
