@@ -1,6 +1,6 @@
 # Design Your Life - Frontend
 
-[![Netlify Status] [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+[![Netlify Status(https://unruffled-tereshkova-1bf113.netlify.com/activities)] [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
 
 ---
 
