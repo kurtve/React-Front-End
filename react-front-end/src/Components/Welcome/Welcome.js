@@ -10,12 +10,12 @@ const StyledWelcome = styled.div `
 	flex-direction: flex-start;
 	margin-top: 100px;
 	h1 {
-		font-size: 6rem;
+		font-size: 4rem;
 		margin: 20px;
 	}
 	h3 {
-		font-size: 3rem;
-		margin: 20px;
+		font-size: 2.4rem;
+		margin: 10px;
 	}
 	.navlinks {
 		display: flex;
@@ -23,11 +23,11 @@ const StyledWelcome = styled.div `
 		margin: 20px;
 	}
 	.navlinks a {
-		font-size: 2.4rem;
+		font-size: 2.2rem;
 		text-decoration: none;
 		margin: 10px;
-		height: 40px;
-		width: 240px;
+		height: 35px;
+		width: 220px;
 		background-color: #00bc98;
 		color: white;
 		display: flex;
@@ -46,7 +46,6 @@ export default function Welcome() {
   return (
     <StyledWelcome>
       <h1>Design Your Life</h1>
-      <h3>The App to help you find your best future</h3>
 
       <div className='navlinks'>
       	<Link to='/'><i className="fas fa-home"></i>Home</Link>
