@@ -1,6 +1,6 @@
 # Design Your Life - Frontend
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/e23b713a-e4f5-4db1-9c6c-eed71373a7e2/deploy-status)] [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
+![Netlify Status](https://api.netlify.com/api/v1/badges/e23b713a-e4f5-4db1-9c6c-eed71373a7e2/deploy-status) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://choosealicense.com/licenses/mit/)
 
 ---
 
