@@ -4,13 +4,13 @@
 
 ---
 
-**Design Your Life** is a targeted CRUD application that allows **expatriates** users to add new activities to their daily lives and optimze through a rating system and insights component via tracking metrics. Add, track, and discover your best self.
+**Design Your Life** is a targeted CRUD application that allows **users** to add new activities to their daily lives and optimze through a rating system and insights component via **tracking metrics**. Add, track, and discover your best self.
 
 [Deployed Front End]
 <br />
 [Design Your Life: Marketing Site](https://github.com/Lambda-Labs-PT-Design-Your-Life/Front-End-Web-UI)
 <br />
-[Back End](https://github.com/expat-journal-lambda-school/expat-journal-backend)
+[Back End]
 
 **Example User**
 <br />
