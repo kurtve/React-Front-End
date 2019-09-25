@@ -26,6 +26,7 @@ function App() {
 
   const [activities, setActivities] = useState(helpers.initialActivities);
   const [insights, setInsights] = useState(helpers.initialInsights);
+  const [filtered, setFiltered] = useState(activities)
 
 
   // helpers.add adds an item to an array in state
@@ -60,16 +61,43 @@ function App() {
     helpers.edit(insight, insights, setInsights);
   };
 
+  // searchFilter accepts input to filter activities
+  const searchFilter = (input) => {
+    console.log('// input ==>', input)
+    // initialize filtered list
+    let filteredList = []
+    // if the input value exists,
+    if(input !== ''){
+      // create a new array with the items containing the input value
+      filteredList = activities.filter(act => {
+        const lc = act.name.toLowerCase()
+        console.log('// activities toLowerCase ==>', lc)
+        const filter = input.toLowerCase()
+        return lc.includes(filter)
+      })
+    } else {
+      setFiltered(activities)
+    }
+    // set the filtered list to state
+    setFiltered(filteredList)
+    console.log('// FilteredList ==>', filteredList)
+  };
 
   return (
     <StyledApp>
 
-      <Nav />
+      {/* pass activities and insights state down through props */}
+      <Nav 
+        activities={activities} 
+        insights={insights} 
+        searchFilter={searchFilter} 
+        filtered={filtered} 
+      />
 
       <Route exact path="/" component={Welcome} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} activities={activities} />
+        <ActivitiesFeed {...props} activities={activities} filtered={filtered} />
       )} />
 
       <Route path='/insights' render={(props) => (

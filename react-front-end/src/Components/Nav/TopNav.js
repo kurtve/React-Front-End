@@ -1,9 +1,10 @@
 import React from 'react'
-import logo from '../../Assets/logo.svg';
+import logo from '../../Assets/logo.svg'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import Search from '../Search/Search'
 
-export default function Nav() {
+export default function Nav(props) {
 
   const StyledTopNav = styled.div `
     position: fixed;
@@ -21,6 +22,13 @@ export default function Nav() {
       height: 50px;
       width: auto;
     }
+
+    & form {
+      position: absolute;
+      top: 50%;
+      left: 55%;
+      transform: translateY(-50%);
+    }
   `
 
   return (
@@ -28,6 +36,12 @@ export default function Nav() {
       <Link to="/">
         <img className='logo' src={logo} alt="Design Your Life" />
       </Link>
+        <Search 
+          activities={props.activities} 
+          insights={props.insights} 
+          searchFilter={props.searchFilter}
+          filtered={props.filtered}
+        />
     </StyledTopNav>
   )
 }
