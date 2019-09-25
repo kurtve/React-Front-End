@@ -26,6 +26,7 @@ function App() {
 
   const [activities, setActivities] = useState([]);
   const [insights, setInsights] = useState([]);
+  const [search, setSearch] = useState('');
 
 
   // one-time call to initialize state with persistent local storage
@@ -74,12 +75,12 @@ function App() {
   return (
     <StyledApp>
 
-      <Nav />
+      <Nav search={search} setSearch={setSearch} />
 
       <Route exact path="/" component={Welcome} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} activities={activities} />
+        <ActivitiesFeed {...props} search={search} activities={activities} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (
@@ -87,7 +88,7 @@ function App() {
       )} />
 
       <Route path='/insights' render={(props) => (
-        <Insights {...props} insights={insights} activities={activities}
+        <Insights {...props} insights={insights} activities={activities} search={search}
          addInsight={addInsight} editInsight={editInsight} deleteInsight={deleteInsight} />
       )} />
 
