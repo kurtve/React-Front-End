@@ -23,10 +23,18 @@ function App() {
     align-items: center;
   `
 
+  const [activities, setActivities] = useState([]);
+  const [insights, setInsights] = useState([]);
+  const [search, setSearch] = useState('');
 
-  const [activities, setActivities] = useState(helpers.initialActivities);
-  const [insights, setInsights] = useState(helpers.initialInsights);
-  const [search, setSearch] = useState('')
+
+  // one-time call to initialize state with persistent local storage
+  // pass an empty array as the 2nd arg to not use dummy data
+  useEffect(() => {
+    helpers.initialize('DYL_activities', helpers.initialActivities, setActivities);
+    helpers.initialize('DYL_insights', helpers.initialInsights, setInsights);
+  }, []);
+
 
 
   // helpers.add adds an item to an array in state
@@ -64,13 +72,13 @@ function App() {
   return (
     <StyledApp>
 
-      {/* pass activities and insights state down through props */}
       <Nav search={search} setSearch={setSearch} />
 
       <Route exact path="/" component={Welcome} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} activities={activities} search={search} />
+
+      <ActivitiesFeed {...props} search={search} activities={activities} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (
@@ -78,7 +86,7 @@ function App() {
       )} />
 
       <Route path='/insights' render={(props) => (
-        <Insights {...props} insights={insights} activities={activities}
+        <Insights {...props} insights={insights} activities={activities} search={search}
          addInsight={addInsight} editInsight={editInsight} deleteInsight={deleteInsight} />
       )} />
 
