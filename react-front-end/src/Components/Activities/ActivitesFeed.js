@@ -24,7 +24,7 @@ export default function ActivitesFeed(props) {
     	<StyledActivitiesFeed>
     		<h1>Activities</h1>
 
-    		{props.filtered.map(act => {
+    		{props.activites.map(act => {
     			return (
     				<ActivityCard key={act.id} activity={act} {...props} />
     			);
