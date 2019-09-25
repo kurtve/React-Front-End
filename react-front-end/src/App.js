@@ -70,7 +70,7 @@ function App() {
       <Route exact path="/" component={Welcome} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} activities={activities} filtered={filtered} />
+        <ActivitiesFeed {...props} activities={activities} search={search} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (

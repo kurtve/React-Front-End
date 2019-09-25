@@ -16,8 +16,8 @@ export default function Nav(props) {
       <TopNav 
         activities={props.activities} 
         insights={props.insights} 
-        searchFilter={props.searchFilter}
-        filtered={props.filtered}
+        search={props.search}
+        setSearch={props.setSearch}
       />
 
       <BottomNav />

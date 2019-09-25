@@ -20,15 +20,23 @@ const StyledActivitiesFeed = styled.div `
 
 export default function ActivitesFeed(props) {
 
-	return (
-    	<StyledActivitiesFeed>
-    		<h1>Activities</h1>
+	const match = (search, item) => {
+		const lc_search = search.toLowerCase();
+		const name = item.name.toLowerCase();
+		const notes = item.notes.toLowerCase();
+		const result = name.includes(lc_search) || notes.includes(lc_search);
+		return result;
+	}
 
-    		{props.activites.map(act => {
-    			return (
-    				<ActivityCard key={act.id} activity={act} {...props} />
-    			);
-    		})}
+	return (
+		<StyledActivitiesFeed>
+			<h1>Activities</h1>
+
+			{props.activities.filter(item => match(props.search, item)).map(act => {
+				return (
+					<ActivityCard key={act.id} activity={act} {...props} />
+				);
+			})}
 
 		</StyledActivitiesFeed>
 	);
