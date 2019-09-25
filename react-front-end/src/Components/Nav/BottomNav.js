@@ -17,7 +17,7 @@ export default function BottomNav() {
     background: #00bc98;
 
     & div {
-      width: 35%;
+      width: 400px;
       margin: 0 auto;
       display: flex;
       justify-content: space-around;
