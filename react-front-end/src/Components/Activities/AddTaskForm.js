@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import axios from 'axios'; 
 
 const AddTaskForm = props => {
    
@@ -23,7 +23,7 @@ const AddTaskForm = props => {
       setTask({ ...task, [name]: value })
     }
   
-    let jwtToken = '1234';
+ 
 
     return (
       <div className="AddTaskForm">
@@ -62,17 +62,17 @@ const AddTaskForm = props => {
         <label>Duration </label>
         <input type="number" name="duration" placeholder="time (minutes)" value={task.duration} onChange={handleInputChange} />
         <br />
-        <label>Descript. </label>
-        <input type="text" name="description" placeholder="Add Description..." value={task.description} onChange={handleInputChange} /> 
+        <label>Description</label>
+        <input type="text" name="description" className="textarea" placeholder="Add Description..." value={task.description} onChange={handleInputChange} /> 
         <br />
         <label>Created </label>
-        <input type="time" name="createdDate" placeholder="createdDate" value={task.createdDate} onChange={handleInputChange} />
+        <input type="datetime-local" name="createdDate" placeholder="createdDate" value={task.createdDate} onChange={handleInputChange} />
         <br />
         <label>Energy </label>
-        <input type="text" name="energyLevel" placeholder="energy-level" value={task.energyLevel} onChange={handleInputChange} />
+        <input type="range" name="energyLevel" placeholder="energy-level" value={task.energyLevel} onChange={handleInputChange} />
         <br />
         <label>Enjoyment</label>
-        <input type="text" name="enjoymentLevel" placeholder="rating" value={task.enjoymentLevel} onChange={handleInputChange} />
+        <input type="range" name="enjoymentLevel" placeholder="rating" value={task.enjoymentLevel} onChange={handleInputChange} />
         <br />
         <button>Add Task</button>
         </form>

@@ -19,7 +19,7 @@ const StyledAddActivity = styled.div `
 	}
 	h4 {
 		font-size: 1.6rem;
-		margin: 16px;
+		margin: 16px; 
 	}
 	div {
 		margin: 5px;

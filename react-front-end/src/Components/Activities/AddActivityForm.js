@@ -2,6 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import AddTaskForm from './AddTaskForm.js';
 import AddActivity from './AddActivity.js';
 import styled from 'styled-components';
+import ActivityCard from './ActivityCard';
 
 
 const StyledAddActivityForm = styled.div`
@@ -12,6 +13,17 @@ const StyledAddActivityForm = styled.div`
   background: none;
   font-family: 'proxima-nova', sans-serif;
   font-size: 1.6rem;
+}
+
+.dropdown {
+	margin-top: 35px;
+	align-content: center;
+}
+
+
+.dropdown-content {
+	align-content: center;
+	border-radius: 4px;
 }
 
 h1 {
@@ -71,10 +83,10 @@ input {
 
 .textarea {
   border-radius: 8px;
-  width: 260px;
+  width: 120px;
   height: 80px;
   border: 1px solid lightgrey;
-  margin: 10px;
+  margin: 8px;
 }
 
 
@@ -188,9 +200,29 @@ const AddActivityForm = () => {
 */
 		return (
 			<StyledAddActivityForm>
-			<div className="container">
-	
 				<div className="flex-row">
+				<div className="container">
+				<div className="dropdown">
+				<button className="dropbtn">Category Suggest</button>
+				<div className="dropdown-content">
+					<a href="#">Creative</a>
+					<i className='fas fa-grin-hearts'></i>
+					<a href="#">Meditation</a>
+					<i class="fas fa-couch"></i>
+					<a href="#">Fitness</a>
+					<i class="fas fa-running"></i>
+					<a href="#">Professional</a>
+					<i class="fas fa-user-tie"></i>
+					<a href="#">Development</a>
+					<i class="fas fa-dumbbell"></i>
+					<a href="#">Diet</a>
+					<i class="fas fa-pepper-hot"></i>
+					<a href="#">Dirty Work</a>
+					<i class="fas fa-meh-rolling-eyes"></i>
+					<a href="#">Career Nav</a>
+					<i class="fas fa-dollar-sign"></i>
+				</div>
+				</div>
 					<div className="flex-large">
 				<Fragment>
 				<div className="title">
@@ -199,26 +231,12 @@ const AddActivityForm = () => {
 				</div>
 				</Fragment>
 			</div>
-			<div className="dropdown">
-			<button className="dropbtn">Category Suggest</button>
-			<div className="dropdown-content">
-				<a href="#">Creative</a>
-				<i className='fas fa-grin-hearts'></i>
-				<a href="#">Meditation</a>
-				<a href="#">Fitness</a>
-				<a href="#">Professional</a>
-				<a href="#">Development</a>
-				<a href="#">Diet</a>
-				<a href="#">Dirty Work</a>
-				<a href="#">Career Nav</a>
-			</div>
-			</div>
 			<br />
 			<div><p>See Logged Tasks Below:</p></div>
 				<div className="flex-large">
 					<AddActivity tasks={tasks} deleteTask={deleteTask} />
 				</div>
-			</div>
+			</div> 
 			</div>
 		</StyledAddActivityForm>
 		)
