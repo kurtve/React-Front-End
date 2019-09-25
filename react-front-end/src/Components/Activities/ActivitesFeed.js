@@ -20,8 +20,6 @@ const StyledActivitiesFeed = styled.div `
 
 export default function ActivitesFeed(props) {
 
-	console.log(props);
-
 	return (
     	<StyledActivitiesFeed>
     		<h1>Activities</h1>

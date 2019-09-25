@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -32,33 +32,33 @@ function App() {
   // helpers.add adds an item to an array in state
   // it will add an id and timestamp to the object before adding it to the list
   const addActivity = (newActivity) => {
-    helpers.add(newActivity, activities, setActivities);
+    helpers.add('DYL_activities', newActivity, activities, setActivities);
   };
 
   const addInsight = (newInsight) => {
-    helpers.add(newInsight, insights, setInsights);
+    helpers.add('DYL_insights', newInsight, insights, setInsights);
   };
 
 
   // helpers.delete removes an item to an array in state
   // if the id is not found in the array, no change takes place
   const deleteActivity = (activityId) => {
-    helpers.remove(activityId, activities, setActivities);
+    helpers.remove('DYL_activities', activityId, activities, setActivities);
   };
 
   const deleteInsight = (insightId) => {
-    helpers.remove(insightId, insights, setInsights);
+    helpers.remove('DYL_insights', insightId, insights, setInsights);
   };
 
 
   // helpers.edit an item to an array in state
   // if the id is not found in the array, no change takes place
   const editActivity = (activity) => {
-    helpers.edit(activity, activities, setActivities);
+    helpers.edit('DYL_activities', activity, activities, setActivities);
   };
 
   const editInsight = (insight) => {
-    helpers.edit(insight, insights, setInsights);
+    helpers.edit('DYL_insights', insight, insights, setInsights);
   };
 
   // searchFilter accepts input to filter activities
@@ -83,6 +83,7 @@ function App() {
     console.log('// FilteredList ==>', filteredList)
   };
 
+
   return (
     <StyledApp>
 
@@ -98,6 +99,10 @@ function App() {
 
       <Route path='/activities' render={(props) => (
         <ActivitiesFeed {...props} activities={activities} filtered={filtered} />
+      )} />
+
+      <Route path='/deleteactivity/:id' render={(props) => (
+        <ConfirmDelete {...props} activities={activities} deleteActivity={deleteActivity} />
       )} />
 
       <Route path='/insights' render={(props) => (
