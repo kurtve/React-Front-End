@@ -136,19 +136,28 @@ const AddActivityForm = () => {
 
 	 
 		// Initial Data
-		const taskData = [
-			{userId: null, 
-				activityName:'', 
-				category:'', 
-				duration:'', 
-				description:'', 
-				createdDate:'', 
-				energyLevel:'', 
-				enjoymentLevel:''}
-		]
+		const taskData = [{
+				"userId": undefined, 
+				"activityName":'', 
+				"category":'', 
+				"duration":'', 
+				"description":'', 
+				"createdDate":'', 
+				"energyLevel":'', 
+				"enjoymentLevel":''
+			}]
+		
 	
 		
-		const initialFormState = {userId: undefined, activityName:'', category:'', duration:'', description:'', createdDate:'', energyLevel:'', enjoymentLevel:''}
+		const initialFormState = 
+		{"userId": undefined, 
+		"activityName":'', 
+		"category":'', 
+		"duration":'', 
+		"description":'', 
+		"createdDate":'', 
+		"energyLevel":'', 
+		"enjoymentLevel":''}
 	
 		// Setting State
 		const [ tasks, setTask ] = useState(taskData)
@@ -174,11 +183,8 @@ const AddActivityForm = () => {
 	
 		const editTask = task => {
 			setEditing(true)
-	
-			setCurrentTask({ id: task.userId, category: task.category, name: task.name, time: task.time, rating: task.rating, notes: task.notes }
-		)
 		}
-	
+
 		return (
 			<StyledAddActivityForm>
 			<div className="container">
@@ -193,7 +199,7 @@ const AddActivityForm = () => {
 				</Fragment>
 			</div>
 			<div className="dropdown">
-			<button className="dropbtn">Category</button>
+			<button className="dropbtn">Category Suggest</button>
 			<div className="dropdown-content">
 				<a href="#">Creative</a>
 				<i className='fas fa-grin-hearts'></i>

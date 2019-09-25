@@ -2,7 +2,19 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const AddTaskForm = props => {
-    const initialFormState = {userId: undefined, activityName:'', category:'', duration:'', description:'', createdDate:'', energyLevel:'', enjoymentLevel:''}
+   
+  
+  const initialFormState = {
+      "userId": undefined, 
+      "activityName":'', 
+      "category":'', 
+      "duration":'', 
+      "description":'', 
+      "createdDate":'', 
+      "energyLevel":'', 
+      "enjoymentLevel":''
+    }
+
     const [ task, setTask ] = useState(initialFormState)
   
     const handleInputChange = event => {
@@ -11,6 +23,8 @@ const AddTaskForm = props => {
       setTask({ ...task, [name]: value })
     }
   
+    let jwtToken = '1234';
+
     return (
       <div className="AddTaskForm">
       <form
@@ -18,15 +32,17 @@ const AddTaskForm = props => {
           event.preventDefault()
           if (!task.userId || !task.activity) return
   
-          props.addTask(task)
-          axios.post('https://design-your-life-backend.herokuapp.com/api/activity',task) 
+          props.addTask(task);
+          JSON.stringify(task);
+          axios.post('https://design-your-life-backend.herokuapp.com/api/activity',task,{ headers: { Authorization:localStorage.getItem('jwtToken') } }) 
           .then(data => {
             console.log(data)
           })
           .catch(error => {
             console.log(error)
           })
-          setTask(initialFormState); 
+          setTask(initialFormState);
+          console.log(task); 
         }
       }
       >
@@ -49,8 +65,8 @@ const AddTaskForm = props => {
         <label>Descript. </label>
         <input type="text" name="description" placeholder="Add Description..." value={task.description} onChange={handleInputChange} /> 
         <br />
-        <label>Date </label>
-        <input type="text" name="createdDate" placeholder="createdDate" value={task.createdDate} onChange={handleInputChange} />
+        <label>Created </label>
+        <input type="time" name="createdDate" placeholder="createdDate" value={task.createdDate} onChange={handleInputChange} />
         <br />
         <label>Energy </label>
         <input type="text" name="energyLevel" placeholder="energy-level" value={task.energyLevel} onChange={handleInputChange} />
