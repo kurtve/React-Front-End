@@ -17,6 +17,10 @@ const StyledAddActivity = styled.div `
 		font-size: 3rem;
 		margin: 20px;
 	}
+	h4 {
+		font-size: 1.6rem;
+		margin: 16px;
+	}
 	div {
 		margin: 5px;
 	}

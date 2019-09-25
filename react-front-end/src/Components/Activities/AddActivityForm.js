@@ -28,6 +28,7 @@ font-size: 2.4rem;
 p {
   font-weight: 700;
   font-size: 1.5rem;
+  padding: 16px;
 }
 
 .flex-row {
@@ -174,7 +175,7 @@ const AddActivityForm = () => {
 			setEditing(false)
 			setTask(tasks.filter(task => task.id !== id))
 		}
-	
+/* ops not neccesary right now	
 		const updateTask = (id, updatedTask) => {
 			setEditing(false)
 	
@@ -184,7 +185,7 @@ const AddActivityForm = () => {
 		const editTask = task => {
 			setEditing(true)
 		}
-
+*/
 		return (
 			<StyledAddActivityForm>
 			<div className="container">
@@ -212,6 +213,8 @@ const AddActivityForm = () => {
 				<a href="#">Career Nav</a>
 			</div>
 			</div>
+			<br />
+			<div><p>See Logged Tasks Below:</p></div>
 				<div className="flex-large">
 					<AddActivity tasks={tasks} deleteTask={deleteTask} />
 				</div>
