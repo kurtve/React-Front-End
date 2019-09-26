@@ -12,7 +12,11 @@ const StyledAddActivity = styled.div `
 	border: 3px solid #00bc98;
 	border-radius: 20px;
 	padding: 10px;
-	margin-top: 140px;
+	margin-top: 40px;
+	.AddCard {
+		text-align: center;
+		justify-content: center;
+	}
 	h1 {
 		font-size: 3rem;
 		margin: 20px;
@@ -50,7 +54,7 @@ const StyledAddActivity = styled.div `
 		width: 90%;
 	}
 	.name {
-		font-size 2rem;
+		font-size: 2rem;
 		font-weight: bold;
 	}
 	.category {
@@ -92,18 +96,27 @@ const AddActivity = props => (
 		<p>Energy Level: {task.energyLevel} </p>
 		<p>Rating: {task.enjoymentLevel} </p>
 		</div>
-        <div className='footer'></div>
+		<div className='footer'>
+		<button
+		onClick={() => {
+		  props.editTask(task)
+		}}
+		className="button"
+	  	>
+		Update
+		</button>
         <button
         onClick={() => props.deleteTask(task.id)}
         className="button"
         >
         Delete
-      </button>
+	  </button>
+	  </div>
         </div>
         ))
         ) : (
           <div>
-            <p>No Data</p>
+            <div><p>No Data</p></div>
           </div>
         )}
     </StyledAddActivity>
