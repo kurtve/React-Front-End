@@ -5,10 +5,9 @@ import { Tween, Timeline } from 'react-gsap';
 // icons will be animated using a stagger method
 const iconsArray = [
 	{ src: "https://img.icons8.com/ios-filled/50/000000/bench-press-with-dumbbells.png"},
-	{ src: "https://img.icons8.com/officel/40/000000/bench-over-head.png"},
 	{ src: "https://img.icons8.com/officel/80/000000/no-sugar2.png"},
 	{ src: "https://img.icons8.com/nolan/96/000000/exercise.png"},
-	{ src: "https://img.icons8.com/color/96/000000/overtime.png", width: "76", height: "59" }
+	{ src: "https://img.icons8.com/color/96/000000/overtime.png"}
 ];
 
 class TimelineSequence extends Component {
@@ -43,7 +42,9 @@ class TimelineSequence extends Component {
 				<div className="col-12 mt-3">
 
 					<h1 className="text-center">DESIGN YOUR LIFE</h1>
-					<p className="lead">Uses the <strong>ref</strong> callback to create references for a group of elements in the app. Then using the <strong>componentDidMount</strong> method, creates a timeline sequence that can be controlled using the buttons.</p>
+                    <p className="lead">Log your <strong>daily activities</strong> and see the 
+                    <strong>real results</strong> every week with insights</p>
+                    <h2>Press Start Below To GO</h2>
 					
 					{/* WRAPPER */}
 					<div className="demoWrapper">
@@ -88,7 +89,7 @@ class TimelineSequence extends Component {
 						<button
 							className="btn gsap-btn"
 							onClick={() => this.logoTl.play()}
-						>Start</button>
+						>Start!</button>
 						<button
 							className="btn gsap-btn"
 							onClick={() => this.logoTl.pause()}

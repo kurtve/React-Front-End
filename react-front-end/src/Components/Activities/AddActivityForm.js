@@ -54,6 +54,7 @@ p {
   padding: 25px;
   background: #00bc98;
   border-radius: 8px;
+  opacity: 0.9;
 }
 .flex-large {
   display: flex;
@@ -77,6 +78,8 @@ button {
   font-weight: 700;
   cursor: pointer;
   box-shadow: 2px 2px darkgreen;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin: 5px;
 }
 input {
   border-radius: 4px; 
@@ -113,7 +116,7 @@ input {
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: ;
+  display: none;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
