@@ -88,25 +88,25 @@ function App() {
       )} />
 
       <Route path='/activities' render={(props) => (
-
-      <ActivitiesFeed {...props} search={search} activities={activities} />
+        <ActivitiesFeed {...props} search={search} activities={activities} status={status} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (
-        <ConfirmDelete {...props} activities={activities} deleteActivity={deleteActivity} />
+        <ConfirmDelete {...props} activities={activities} status={status}
+         deleteActivity={deleteActivity} />
       )} />
 
       <Route path='/insights' render={(props) => (
-        <Insights {...props} insights={insights} activities={activities} search={search}
+        <Insights {...props} insights={insights} activities={activities} search={search} status={status}
          addInsight={addInsight} editInsight={editInsight} deleteInsight={deleteInsight} />
       )} />
 
       <Route path='/addactivity' render={(props) => (
-        <AddActivityForm {...props} addActivity={addActivity} />
+        <AddActivityForm {...props} addActivity={addActivity} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
-        <EditActivityForm {...props} editActivity={editActivity} />
+        <EditActivityForm {...props} editActivity={editActivity} status={status} />
       )} />
 
     </StyledApp>

@@ -28,6 +28,10 @@ export default function ActivitesFeed(props) {
 		return result;
 	}
 
+	if (!props.status.loggedIn) {
+		props.history.push('/');
+	}
+
 	return (
 		<StyledActivitiesFeed>
 			<h1>Activities</h1>
