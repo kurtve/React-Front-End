@@ -4,6 +4,7 @@ import AddActivity from './AddActivity.js';
 import EditTaskForm from './EditTaskForm.js';
 import styled from 'styled-components';
 //import './Activity.css';
+import TimeLine from './TimeLine.js';
 
 const StyledAddActivityForm = styled.div`
 .container {
@@ -58,7 +59,7 @@ p {
   display: flex;
   justify-content: center;
   text-align: center;
-  flex-flow: column-reverse;
+  flex-flow: row-reverse;
   background: antiquewhite;
   border-radius: 8px;
   margin: 25px;
@@ -74,6 +75,8 @@ button {
   background: black;
   color: aqua;
   font-weight: 700;
+  cursor: pointer;
+  box-shadow: 2px 2px darkgreen;
 }
 input {
   border-radius: 4px; 
@@ -110,7 +113,7 @@ input {
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
+  display: ;
   position: absolute;
   background-color: #f1f1f1;
   min-width: 160px;
@@ -226,6 +229,7 @@ const AddActivityForm = () => {
 			<i class="fas fa-dollar-sign"></i>
 		
 			</div>
+			<TimeLine />
 			</div>
 			
 			<div className="flex-large">
