@@ -23,22 +23,33 @@ function App() {
     align-items: center;
   `
 
+  /*
+  const testStatus = {username: 'joe', userID: 4, loggedIn: true};
+  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkUGM3amJXV0R0NXg4Y21KOUY1dy5wLjhvUnJUY2NRMHFDZGExbWYxTVlHMS9wLmEyTTYyUUcifSwic3ViIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwiaWF0IjoxNTY5NTI0ODM5LCJleHAiOjE1Njk2MTEyMzl9.j7Gc3JU0AQ1ryEM_x5KHyeLbFQ6auv5iTMNJxnEtOfI";
 
-  const [status, setStatus] = useState({
-    username: '',
-    userID: null,
-    loggedIn: false,
-    message: ''
-  });
+  localStorage.setItem('DYL_status', JSON.stringify(testStatus));
+  localStorage.setItem('DYL_token', testToken);
+  */
 
+
+  // check local storage to see if we are already logged in
+  // status object looks like {username, userID, loggedIn}
+  const currentStatus = helpers.getStatus();
+
+  // REMOVE AFTER TESTING
+  console.log('in App');
+  console.log(currentStatus);
+
+  const [status, setStatus] = useState(currentStatus);
+
+  // state for our activities and insights lists, and a search string
   const [activities, setActivities] = useState([]);
   const [insights, setInsights] = useState([]);
   const [search, setSearch] = useState('');
 
 
-  // one-time call to initialize state
-  // check status to see if we're already logged in
-  // load activities and insights from backend
+  // whenever status changes (we log in or log out),
+  // reload activities and insights from backend
   useEffect(() => {
     helpers.initActivities(status, setActivities);
     helpers.initInsights(status, setInsights);
@@ -77,6 +88,7 @@ function App() {
   const editInsight = (insight) => {
     helpers.edit('DYL_insights', insight, insights, setInsights);
   };
+
 
   return (
     <StyledApp>

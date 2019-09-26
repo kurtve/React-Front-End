@@ -128,7 +128,6 @@ export default function Login(props) {
         username: login.username,
         userID: 1,
         loggedIn: true,
-        message: ''
       });
       resetForm(e);
     }

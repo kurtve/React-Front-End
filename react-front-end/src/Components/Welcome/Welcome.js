@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import * as helpers from '../../Functions/helperFunctions';
 
 
 const StyledWelcome = styled.div `
@@ -65,14 +66,8 @@ export default function Welcome(props) {
 
 	const logoutHandler = (e) => {
 		e.preventDefault();
-
-    	props.setStatus({...props.status,
-        	username: '',
-        	userID: null,
-        	loggedIn: false,
-        	message: ''
-      	});
-
+		// logging out. remove credentials and return to top page
+		helpers.logout(props.setStatus);
 		props.history.push('/');
 	};
 
