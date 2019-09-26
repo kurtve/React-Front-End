@@ -23,7 +23,6 @@ function App() {
     align-items: center;
   `
 
-
   const [activities, setActivities] = useState([]);
   const [insights, setInsights] = useState([]);
   const [search, setSearch] = useState('');
@@ -70,8 +69,6 @@ function App() {
     helpers.edit('DYL_insights', insight, insights, setInsights);
   };
 
-
-
   return (
     <StyledApp>
 
@@ -80,7 +77,8 @@ function App() {
       <Route exact path="/" component={Welcome} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} search={search} activities={activities} />
+
+      <ActivitiesFeed {...props} search={search} activities={activities} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (

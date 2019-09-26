@@ -29,8 +29,8 @@ export default function ActivitesFeed(props) {
 	}
 
 	return (
-    	<StyledActivitiesFeed>
-    		<h1>Activities</h1>
+		<StyledActivitiesFeed>
+			<h1>Activities</h1>
 
     		{props.activities.filter(item => match(props.search, item)).map(act => {
     			return (

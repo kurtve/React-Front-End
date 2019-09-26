@@ -16,19 +16,27 @@ export default function BottomNav() {
     align-items: center;
     background: #00bc98;
 
+    & div {
+      width: 400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+    }
+
     i {
       font-size: 1.8rem;
       color: white;
-
     }
   `
 
   return (
     <StyledBottomNav>
-      <Link to="/"><i className="fas fa-home"></i></Link>
-      <Link to='/activities'><i className="fas fa-walking"></i></Link>
-      <Link to="/addactivity"><i className="fas fa-plus"></i></Link>
-      <Link to="/insights"><i className="fas fa-lightbulb"></i></Link>
+      <div>
+        <Link to="/"><i className="fas fa-home"></i></Link>
+        <Link to='/activities'><i className="fas fa-walking"></i></Link>
+        <Link to="/addactivity"><i className="fas fa-plus"></i></Link>
+        <Link to="/insights"><i className="fas fa-lightbulb"></i></Link>
+      </div>
     </StyledBottomNav>
   )
 }
