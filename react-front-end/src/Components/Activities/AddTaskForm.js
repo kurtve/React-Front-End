@@ -34,7 +34,7 @@ const AddTaskForm = props => {
   
           props.addTask(task);
           JSON.stringify(task);
-          axios.post('https://design-your-life-backend.herokuapp.com/api/activity',task,{ headers: { Authorization:localStorage.getItem('jwtToken') } }) 
+          axios.post('https://design-your-life-backend.herokuapp.com/api/activity',task,{ headers: {authorization:localStorage.getItem('jwtToken') } }) 
           .then(data => {
             console.log(data)
           })
