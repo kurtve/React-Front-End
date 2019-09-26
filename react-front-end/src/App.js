@@ -78,8 +78,6 @@ function App() {
     helpers.edit('DYL_insights', insight, insights, setInsights);
   };
 
-
-
   return (
     <StyledApp>
 
@@ -90,7 +88,8 @@ function App() {
       )} />
 
       <Route path='/activities' render={(props) => (
-        <ActivitiesFeed {...props} search={search} activities={activities} />
+
+      <ActivitiesFeed {...props} search={search} activities={activities} />
       )} />
 
       <Route path='/deleteactivity/:id' render={(props) => (
