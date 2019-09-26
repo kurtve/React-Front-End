@@ -104,6 +104,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
       text-align: right;
       font-size: 1.2rem;
       font-style: italic;
+      background: rgba(217, 238, 255, 0.5);
     }
     &:last-child {
       margin-bottom: 80px;
