@@ -47,13 +47,73 @@ export const logout = (setStatus) => {
 };
 
 
+
+// make axios call to register a new user
+export const register = (setStatus, username, password, email) => {
+
+  axios
+    .post(`${baseURL}api/auth/register`, {
+      username: username,
+      password: password,
+      email: email
+    })
+    .then(res => {
+      console.log('register axios POST call res.data');
+      console.log(res.data);
+
+    })
+    .catch(err => {
+      console.log('register axios POST call err');
+      console.log(err);
+
+    });
+
+};
+
+
+// make axios call to log in
+export const login = (setStatus, username, password) => {
+
+  axios
+    .post(`${baseURL}api/auth/login`, {
+      username: username,
+      password: password
+    })
+    .then(res => {
+      console.log('login axios POST call res.data');
+      console.log(res.data);
+
+      const newStatus = {
+        username: username,
+        userID: 4,  // res.data.userID,
+        loggedIn: true
+      };
+
+      console.log(newStatus);
+
+      localStorage.setItem('DYL_token', res.data.token);
+      localStorage.setItem('DYL_status', JSON.stringify(newStatus));
+
+      setStatus(newStatus);
+    })
+    .catch(err => {
+      console.log('login axios POST call err');
+      console.log(err);
+    });
+
+};
+
+
+
+
+
 // because the back end is using a different layout than the front end,
 // we need some helper functions to map the formats back and forth
 
 // activities back -> front
-export const activityB2F = (act, idx) => {
+export const activityB2F = (act, id) => {
   const mappedAct = {
-    id: '',
+    id: null,
     name: '',
     category: '',
     notes: '',
@@ -63,7 +123,7 @@ export const activityB2F = (act, idx) => {
     updated: null
   };
 
-  mappedAct.id = idx.toString();
+  mappedAct.id = id;
   mappedAct.name = act.activityName;
   mappedAct.category = act.category;
   mappedAct.notes = act.description;
@@ -127,7 +187,7 @@ export const insightF2B = (ins, userID) => {
 // insights back -> front
 export const insightB2F = (ins) => {
   const mappedIns = {
-    id: '',
+    id: null,
     weekOf: '',
     reflection: '',
     created: '',
@@ -213,30 +273,13 @@ export const getInsights = (userID, setInsights) => {
 
       if (err.response.status === 401) {
         // invalid token--perhaps expired? force a re-login
-        localStorage.removeItem("DYL_token");
+        //localStorage.removeItem("DYL_token");
       }
     });
 
 };
 
 
-
-
-
-// initialize state, either using previous state if available, or initObj otherwise
-export const initialize = (dataName, initObj, setter) => {
-  const prevState = JSON.parse(localStorage.getItem(dataName));
-
-  if (Array.isArray(prevState)) {
-    // found something in local storage, use it
-    setter(prevState);
-  } else {
-    // found nothing, or malformed data. set to initObj
-    localStorage.setItem(dataName, JSON.stringify(initObj));
-    setter(initObj);
-  }
-
-};
 
 
 // get the max id currently in the list
@@ -246,22 +289,17 @@ const getMaxId = (itemList) => {
 
 
 // add a new item to a list
-export const add = (dataName, newItem, itemList, setList) => {
+export const add = (newItem, itemList, setList) => {
   newItem.created = (new Date()).toUTCString();
   newItem.updated = null;
   newItem.id = getMaxId(itemList) + 1;
   const newList = [...itemList, newItem];
-  // update local storage
-  localStorage.setItem(dataName, JSON.stringify(newList));
-  // update state to match
   setList(newList);
 };
 
 
-
-
 // replace an item in a list
-export const edit = (dataName, item, itemList, setList) => {
+export const edit = (item, itemList, setList) => {
   const index = itemList.findIndex(e => e.id === item.id);
   // if index was not found, do nothing
   if (index < 0) return;
@@ -269,22 +307,17 @@ export const edit = (dataName, item, itemList, setList) => {
   // first populate the update date field
   item.updated = (new Date()).toUTCString();
   const newList = itemList.slice(0, index).concat([item]).concat(itemList.slice(index + 1));
-  // update local storage
-  localStorage.setItem(dataName, JSON.stringify(newList));
-  // update state to match
+
   setList(newList);
 };
 
 
-export const remove = (dataName, itemId, itemList, setList) => {
+export const remove = (itemId, itemList, setList) => {
   const index = itemList.findIndex(e => e.id === itemId);
   // if index was not found, do nothing
   if (index < 0) return;
   // remove the item from the list
   const newList = itemList.slice(0, index).concat(itemList.slice(index + 1));
-  // update local storage
-  localStorage.setItem(dataName, JSON.stringify(newList));
-  // update state to match
   setList(newList);
 };
 

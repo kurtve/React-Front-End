@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from 'styled-components'
+import * as helpers from '../../Functions/helperFunctions';
 
 
 const StyledLogin = styled.div `
@@ -112,6 +113,8 @@ export default function Login(props) {
     } else {
       setLogin({username: '', password: '', email: '', emessage: '',
         imessage: 'Successfully Registered! You may log in now:'});
+
+      helpers.register(props.setStatus, login.username, login.password, login.email);
     }
   };
 
@@ -124,12 +127,9 @@ export default function Login(props) {
       setLogin({...login, imessage: '',
         emessage: 'You need to supply both a username and password to log in'});
     } else {
-      props.setStatus({...props.status,
-        username: login.username,
-        userID: 1,
-        loggedIn: true,
-      });
       resetForm(e);
+      
+      helpers.login(props.setStatus, login.username, login.password);
     }
   };
 
