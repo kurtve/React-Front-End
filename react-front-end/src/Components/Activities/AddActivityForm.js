@@ -1,33 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React, { useState } from 'react'
 
 export default function AddActivityForm(props) {
-  const [token, setToken] = useState('')
-
-
-  const params = {
-      username: 'cliftonhodges1',
-      password: 'clifpassword1',
-      email: 'clif1@email.com'
-  }
-  const actParams = {
-    username: 'cliftonhodges1',
-    password: 'clifpassword1',
-  }
-  const headers = {
-      // Authorization: `${token}`
-  }
-
-
-  axios.post('https://design-your-life-backend.herokuapp.com/api/auth/login', params)
-    // .then(res => {
-    //   console.log(res)
-    //   setToken(res.data.token)
-    // }, )
-  
-  useEffect(() => {
-    axios.post('https://design-your-life-backend.herokuapp.com/api/activity', actParams, headers)
-  }, [token])
 
   const initialState = [{
     name: '',
