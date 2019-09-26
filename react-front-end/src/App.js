@@ -7,7 +7,7 @@ import Welcome from './Components/Welcome/Welcome';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
-import AddActivityForm from './Components/Activities/AddActivityForm';
+import AddActivity from './Components/Activities/AddActivity';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
 
@@ -83,7 +83,7 @@ function App() {
       )} />
 
       <Route path='/addactivity' render={(props) => (
-        <AddActivityForm {...props} addActivity={addActivity} />
+        <AddActivity {...props} addActivity={addActivity} activities={activities} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
