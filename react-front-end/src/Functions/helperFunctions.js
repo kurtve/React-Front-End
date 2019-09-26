@@ -92,6 +92,38 @@ export const categories = [{
 
 
 
+// initialilze Activities
+export const initActivities = (status, setActivities) => {
+  // if we are logged in, then get Activities for the user
+  if (status.loggedIn) {
+    getActivities(status.userID, setActivities);
+  }
+};
+
+
+// initialilze Insights
+export const initInsights = (status, setInsights) => {
+  // if we are logged in, then get Insights for the user
+  if (status.loggedIn) {
+    getInsights(status.userID, setInsights);
+  }
+};
+
+
+// for now...
+export const getActivities = (userID, setActivities) => {
+  initialize('DYL_activities', initialActivities, setActivities);
+};
+
+
+export const getInsights = (userID, setInsights) => {
+  initialize('DYL_insights', initialInsights, setInsights);
+};
+
+
+
+
+
 // initialize state, either using previous state if available, or initObj otherwise
 export const initialize = (dataName, initObj, setter) => {
   const prevState = JSON.parse(localStorage.getItem(dataName));
@@ -125,6 +157,8 @@ export const add = (dataName, newItem, itemList, setList) => {
   // update state to match
   setList(newList);
 };
+
+
 
 
 // replace an item in a list

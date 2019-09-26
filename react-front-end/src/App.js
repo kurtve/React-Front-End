@@ -3,7 +3,7 @@ import { Route } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Nav from './Components/Nav/Nav';
-import Welcome from './Components/Welcome/Welcome';
+import Landing from './Components/Welcome/Landing';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
@@ -24,17 +24,25 @@ function App() {
   `
 
 
+  const [status, setStatus] = useState({
+    username: '',
+    userID: null,
+    loggedIn: false,
+    message: ''
+  });
+
   const [activities, setActivities] = useState([]);
   const [insights, setInsights] = useState([]);
   const [search, setSearch] = useState('');
 
 
-  // one-time call to initialize state with persistent local storage
-  // pass an empty array as the 2nd arg to not use dummy data
+  // one-time call to initialize state
+  // check status to see if we're already logged in
+  // load activities and insights from backend
   useEffect(() => {
-    helpers.initialize('DYL_activities', helpers.initialActivities, setActivities);
-    helpers.initialize('DYL_insights', helpers.initialInsights, setInsights);
-  }, []);
+    helpers.initActivities(status, setActivities);
+    helpers.initInsights(status, setInsights);
+  }, [status]);
 
 
 
@@ -77,7 +85,9 @@ function App() {
 
       <Nav search={search} setSearch={setSearch} />
 
-      <Route exact path="/" component={Welcome} />
+      <Route exact path='/' render={(props) => (
+        <Landing {...props} status={status} setStatus={setStatus} />
+      )} />
 
       <Route path='/activities' render={(props) => (
         <ActivitiesFeed {...props} search={search} activities={activities} />
