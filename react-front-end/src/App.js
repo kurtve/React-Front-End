@@ -7,7 +7,7 @@ import Landing from './Components/Welcome/Landing';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
-import AddActivityForm from './Components/Activities/AddActivityForm';
+import AddActivity from './Components/Activities/AddActivity';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
 
@@ -114,11 +114,19 @@ function App() {
       )} />
 
       <Route path='/addactivity' render={(props) => (
+
         <AddActivityForm {...props} addActivity={addActivity} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
         <EditActivityForm {...props} editActivity={editActivity} status={status} />
+       {/*
+        <AddActivity {...props} addActivity={addActivity} activities={activities} />
+      )} />
+
+      <Route path='/editactivity/:id' render={(props) => (
+        <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
+      */}
       )} />
 
     </StyledApp>

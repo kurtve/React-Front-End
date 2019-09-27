@@ -22,3 +22,83 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Form styles */
+
+.formContainer {
+  text-align: center;
+  margin: 100px 0;
+}
+
+.formContainer h1 {
+  font-size: 2.6rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  margin: 30px 0;
+}
+
+.formContainer form {
+  margin: 20px 0;
+  border: 3px solid #00bc98;
+  border-radius: 10px;
+  padding: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+}
+
+.formContainer form > * {
+  margin-bottom: 30px;
+}
+
+.formContainer form textarea {
+  resize: none;
+}
+
+.formContainer form textarea,
+.formContainer form input {
+  width: 85%;
+  margin: 2% auto;
+  padding: 0 5%;
+  font-family: inherit;
+  font-size: 1.6rem;
+  border: none;
+  border-bottom: 1px solid #00a0ba;
+}
+
+.formContainer form select {
+  width: 80%;
+  margin: 20px auto 30px auto;
+}
+
+.formContainer form button {
+  background: #ec8b76;
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: .15rem;
+  width: auto;
+  margin: 15px auto 0 auto;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  padding: 2% 4%;
+  color: white;
+  text-transform: uppercase;
+}
+
+.formContainer form button.confirmButton {
+  background: #00bc98;
+}
+
+.formContainer form button:hover {
+  color: #ec8b76;
+  background: white;
+  border: 1px solid #ec8b76;
+  cursor: pointer;
+}
+
+.editForm {
+  margin-top: 0;
+  width: 400px;
+}
