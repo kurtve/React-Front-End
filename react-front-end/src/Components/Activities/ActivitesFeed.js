@@ -28,15 +28,19 @@ export default function ActivitesFeed(props) {
 		return result;
 	}
 
+	if (!props.status.loggedIn) {
+		props.history.push('/');
+	}
+
 	return (
 		<StyledActivitiesFeed>
 			<h1>Activities</h1>
 
-			{props.activities.filter(item => match(props.search, item)).map(act => {
-				return (
-					<ActivityCard key={act.id} activity={act} {...props} />
-				);
-			})}
+    		{props.activities.filter(item => match(props.search, item)).map(act => {
+    			return (
+    				<ActivityCard key={act.id} activity={act} {...props} />
+    			);
+    		})}
 
 		</StyledActivitiesFeed>
 	);
