@@ -115,11 +115,11 @@ function App() {
 
       <Route path='/addactivity' render={(props) => (
 
-        <AddActivityForm {...props} addActivity={addActivity} status={status} />
+        <AddActivity {...props} addActivity={addActivity} activities={activities} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
-        <EditActivityForm {...props} editActivity={editActivity} status={status} />
+        <EditActivityForm {...props} editActivity={editActivity} activities={activities} status={status} />
        /*
         <AddActivity {...props} addActivity={addActivity} activities={activities} />
       )} />
