@@ -1,17 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export default function EditActivityForm(props) {
-  const initialState = [{
-    name: '',
-    category: '',
-    rating: '',
-    time: '',
-    notes: '',
-    date: ''
-  }]
+  console.log(props)
 
-  const [input, setInput] = useState(initialState)
-  
+  // get the id value from the path
+  const id = props.match.params.id;
+
+  // find the activity in the activities array
+  const index = props.activities.findIndex(item => item.id === id);
+  if (index < 0) {
+    // something went wrong. return to activities feed.
+    props.history.push('/activities');
+  }
+
+  // get the activity
+  const activity = props.activities[index];
+
+  // confirmed! edit the activity and return to activities feed
+  const editActivity = (id) => {
+    props.editActivity(id);
+    props.history.push('/activities');
+  };
+
+  // user changed their mind. return to activities feed
+  const cancel = () => {
+    props.history.push('/activities');
+  };
+
+  // state to hold input value, initial value is the activity
+  const [input, setInput] = useState(activity)
+
+  // store input value to state
   const handleChange = e => {
     setInput({
       ...input,
@@ -19,27 +38,30 @@ export default function EditActivityForm(props) {
     })
   }
   
+
   const handleSubmit = e => {
     e.preventDefault()
-    props.addActivity(input)
-    setInput(initialState)
+    editActivity(input)
   }
 
   return (
-    <>
-      <form onSubmit={handleSubmit}>
+    <div className="formContainer editForm">
+      <form onSubmit={handleSubmit} style={{marginTop: '100px'}}>
+
+        <h1>Edit activity</h1>
 
         <input 
           type="text" 
           name="name"
           placeholder="Activity"
+          defaultValue={activity.name}
           onChange={handleChange}
         />
 
         <select 
           name="category"
           onChange={handleChange}
-          defaultValue=""
+          defaultValue={activity.category}
         >
           <option value="" disabled>Choose a category</option>
           <option value="exercise">Exercise</option>
@@ -55,7 +77,7 @@ export default function EditActivityForm(props) {
         <select 
           name="rating"
           onChange={handleChange}
-          defaultValue=""
+          defaultValue={activity.rating}
         >
           <option value="" disabled>Rate your experience</option>
           <option value="1">&#11088;</option>
@@ -69,6 +91,7 @@ export default function EditActivityForm(props) {
           type="number"
           name="time"
           placeholder="Duration (in minutes)"
+          defaultValue={activity.time}
           onChange={handleChange}
         />
 
@@ -76,18 +99,21 @@ export default function EditActivityForm(props) {
           type="text"
           name="notes"
           placeholder="Notes"
+          defaultValue={activity.notes}
           onChange={handleChange}
         />
 
         <input 
           type="date" 
           name="date"
+          defaultValue={activity.date}
           onChange={handleChange}
         />
 
-        <button type="submit">Add Activity</button>
+        <button onClick={cancel}>Cancel</button>
+        <button type="submit" className="confirmButton">Edit</button>
 
       </form>
-    </>
+    </div>
   )
 }

@@ -87,7 +87,7 @@ function App() {
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
-        <EditActivityForm {...props} editActivity={editActivity} />
+        <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
       )} />
 
     </StyledApp>
