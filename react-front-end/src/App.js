@@ -120,13 +120,13 @@ function App() {
 
       <Route path='/editactivity/:id' render={(props) => (
         <EditActivityForm {...props} editActivity={editActivity} status={status} />
-       {/*
+       /*
         <AddActivity {...props} addActivity={addActivity} activities={activities} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
         <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
-      */}
+      */
       )} />
 
     </StyledApp>
