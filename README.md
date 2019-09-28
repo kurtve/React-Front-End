@@ -4,7 +4,7 @@
 
 ---
 
-**Design Your Life** is a targeted CRUD application that allows **users** to add new activities to their daily lives and optimze through a rating system and insights component via **tracking metrics**. Add, track, and discover your best self.
+**Design Your Life** is a targeted CRUD application that allows **users** to add new activities to their daily lives and optimze through a rating system and insights component via **tracking metrics**. Enhance, track, and discover your best self.
 
 [Deployed Front End](https://unruffled-tereshkova-1bf113.netlify.com/activities)
 <br />
