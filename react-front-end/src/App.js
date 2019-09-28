@@ -26,7 +26,6 @@ function App() {
   /*
   const testStatus = {username: 'joe', userID: 4, loggedIn: true};
   const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkUGM3amJXV0R0NXg4Y21KOUY1dy5wLjhvUnJUY2NRMHFDZGExbWYxTVlHMS9wLmEyTTYyUUcifSwic3ViIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwiaWF0IjoxNTY5NTI0ODM5LCJleHAiOjE1Njk2MTEyMzl9.j7Gc3JU0AQ1ryEM_x5KHyeLbFQ6auv5iTMNJxnEtOfI";
-
   localStorage.setItem('DYL_status', JSON.stringify(testStatus));
   localStorage.setItem('DYL_token', testToken);
   */
@@ -60,15 +59,16 @@ function App() {
   // helpers.add adds an item to an array in state
   // it will add an id and timestamp to the object before adding it to the list
   const addActivity = (newActivity) => {
-    helpers.add(newActivity, activities, setActivities);
+    helpers.addActivity(status, setStatus, newActivity);
   };
 
   const addInsight = (newInsight) => {
-    helpers.add(newInsight, insights, setInsights);
+    helpers.addInsight(status, setStatus, newInsight);
   };
 
 
-  // helpers.delete removes an item to an array in state
+
+  // helpers.delete removes an item from an array in memory
   // if the id is not found in the array, no change takes place
   const deleteActivity = (activityId) => {
     helpers.remove(activityId, activities, setActivities);
@@ -79,7 +79,7 @@ function App() {
   };
 
 
-  // helpers.edit an item to an array in state
+  // helpers.edit an item to an array in memory
   // if the id is not found in the array, no change takes place
   const editActivity = (activity) => {
     helpers.edit(activity, activities, setActivities);
@@ -114,20 +114,20 @@ function App() {
       )} />
 
       <Route path='/addactivity' render={(props) => (
-
         <AddActivity {...props} addActivity={addActivity} activities={activities} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
         <EditActivityForm {...props} editActivity={editActivity} activities={activities} status={status} />
-       /*
+      )} />
+
+       {/*
         <AddActivity {...props} addActivity={addActivity} activities={activities} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
         <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
-      */
-      )} />
+      */}
 
     </StyledApp>
   );

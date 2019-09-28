@@ -8,4 +8,5 @@ export default function EditActivity() {
       <EditActivityForm editActivity={props.editActivity} activities={props.activities}/>
     </>
   )
+
 }
