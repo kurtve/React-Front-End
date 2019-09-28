@@ -59,15 +59,16 @@ function App() {
   // helpers.add adds an item to an array in state
   // it will add an id and timestamp to the object before adding it to the list
   const addActivity = (newActivity) => {
-    helpers.add(newActivity, activities, setActivities);
+    helpers.addActivity(status, setStatus, newActivity);
   };
 
   const addInsight = (newInsight) => {
-    helpers.add(newInsight, insights, setInsights);
+    helpers.addInsight(status, setStatus, newInsight);
   };
 
 
-  // helpers.delete removes an item to an array in state
+
+  // helpers.delete removes an item from an array in memory
   // if the id is not found in the array, no change takes place
   const deleteActivity = (activityId) => {
     helpers.remove(activityId, activities, setActivities);
@@ -78,7 +79,7 @@ function App() {
   };
 
 
-  // helpers.edit an item to an array in state
+  // helpers.edit an item to an array in memory
   // if the id is not found in the array, no change takes place
   const editActivity = (activity) => {
     helpers.edit(activity, activities, setActivities);
