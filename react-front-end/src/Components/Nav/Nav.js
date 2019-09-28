@@ -14,10 +14,13 @@ export default function Nav(props) {
     <StyledNav>
 
       <TopNav 
+        {...props}
         activities={props.activities} 
         insights={props.insights} 
         search={props.search}
         setSearch={props.setSearch}
+        status={props.status} 
+        setStatus={props.setStatus}
       />
 
       <BottomNav />

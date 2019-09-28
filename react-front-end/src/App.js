@@ -93,7 +93,9 @@ function App() {
   return (
     <StyledApp>
 
-      <Nav search={search} setSearch={setSearch} />
+      <Route path="/" render={(props) => (
+        <Nav {...props} search={search} setSearch={setSearch} status={status} setStatus={setStatus} />
+      )} />
 
       <Route exact path='/' render={(props) => (
         <Landing {...props} status={status} setStatus={setStatus} />

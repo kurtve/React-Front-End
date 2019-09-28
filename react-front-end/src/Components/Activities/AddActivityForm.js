@@ -90,7 +90,7 @@ export default function AddActivityForm(props) {
 
       </form>
 
-      {props.activities.map((entry, index) => {
+      {/* {props.activities.map((entry, index) => {
         return(
           <div key={index} style={{border: '1px solid green', margin: '20px'}}>
             <p>{entry.name}</p>
@@ -101,7 +101,7 @@ export default function AddActivityForm(props) {
             <p>Entry date: {entry.date}</p>
           </div>
         )
-      })}
+      })} */}
 
     </>
   )

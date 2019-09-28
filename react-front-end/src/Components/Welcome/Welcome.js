@@ -41,36 +41,10 @@ const StyledWelcome = styled.div `
 			margin-right: 20px;
 		}
 	}
-
-	.logout{
-		font-size: 1.6rem;
-		text-decoration: none;
-		margin-top: 30px;
-		height: 30px;
-		width: 120px;
-		background-color: #fb8570;
-		color: white;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		border-radius: 8px;
-		border: none;
-		&:hover {
-			cursor: pointer;
-		}
-	}
 `;
 
 
 export default function Welcome(props) {
-
-	const logoutHandler = (e) => {
-		e.preventDefault();
-		// logging out. remove credentials and return to top page
-		helpers.logout(props.setStatus);
-		props.history.push('/');
-	};
-
 
   return (
     <StyledWelcome>
@@ -81,8 +55,6 @@ export default function Welcome(props) {
       	<Link to='/activities'><i className="fas fa-walking"></i>Activities</Link>
       	<Link to='/addactivity'><i className="fas fa-plus"></i>New Activity</Link>
       	<Link to='/insights'><i className="fas fa-lightbulb"></i>Insights</Link>
-
-	    <button className='logout' onClick={logoutHandler}>Log Out</button>
       </div>
     </StyledWelcome>
   )
