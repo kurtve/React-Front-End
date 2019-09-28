@@ -235,6 +235,17 @@ export const insightB2F = (ins) => {
 };
 
 
+// reverse the order of elements in an array, in place
+export const reverse = (arr) => {
+  const len = arr.length;
+  for (let i = 0; i < len/2; i++) {
+    let temp = arr[i];
+    arr[i] = arr[len - i - 1];
+    arr[len - i - 1] = temp;
+  }
+
+};
+
 
 // initialilze Activities
 export const initActivities = (status, setActivities) => {
@@ -269,8 +280,11 @@ export const getActivities = (userID, setActivities) => {
       console.log('getActivities axios GET call res.data');
       console.log(res.data);
 
-      // map activity array to front-end format before updating state
-      setActivities(res.data.map((item, idx) => activityB2F(item, idx)));
+      // map activity array to front-end format and
+      // reverse the order before updating state
+      const newArray = res.data.map((item, idx) => activityB2F(item, idx));
+      reverse(newArray);
+      setActivities(newArray);
     })
     .catch(err => {
       console.log('getActivities axios GET call err');
@@ -296,8 +310,11 @@ export const getInsights = (userID, setInsights) => {
       console.log('getInsights axios GET call res.data');
       console.log(res.data);
 
-      // map activity array to front-end format before updating state
-      setInsights(res.data.map((item) => insightB2F(item)));
+      // map insight array to front-end format and
+      // reverse the order before updating state
+      const newArray = res.data.map((item) => insightB2F(item));
+      reverse(newArray);
+      setInsights(newArray);
     })
     .catch(err => {
       console.log('getInsights axios GET call err');
