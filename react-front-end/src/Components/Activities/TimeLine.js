@@ -1,14 +1,36 @@
 import React, { Component } from "react";
 import { TimelineLite, CSSPlugin } from "gsap/all";
 import { Tween, Timeline } from 'react-gsap';
+import logo from './logo.png';
+import styled from 'styled-components';
+
 
 // icons will be animated using a stagger method
 const iconsArray = [
 	{ src: "https://img.icons8.com/ios-filled/50/000000/bench-press-with-dumbbells.png"},
-	{ src: "https://img.icons8.com/officel/80/000000/no-sugar2.png"},
-	{ src: "https://img.icons8.com/nolan/96/000000/exercise.png"},
-	{ src: "https://img.icons8.com/color/96/000000/overtime.png"}
+	{ src: "https://img.icons8.com/ios-glyphs/60/000000/rhythmic-gymnastics.png"},
+	{ src: "https://img.icons8.com/color/48/000000/fitbit.png"}
 ];
+
+const StyledTimeline = styled.div`
+background: white;
+.container {
+  text-align: center;
+  justify-content: center;
+  padding: 25px;
+  background: none;
+  font-family: 'proxima-nova', sans-serif;
+  font-size: 1.6rem;
+  margin-top: 25px;
+  height: 100%;
+  background-color: white;
+  border-radius: 8px;
+}
+.row {
+	background-color: white;
+	border-radius: 8px;
+}
+`;
 
 class TimelineSequence extends Component {
 	
@@ -37,14 +59,18 @@ class TimelineSequence extends Component {
 	}
 
 	render(){
-		return <div className="container">
+		return <StyledTimeline>
+		<div className="container">
 			<div className="row">
 				<div className="col-12 mt-3">
 
 					<h1 className="text-center">DESIGN YOUR LIFE</h1>
+					<br />
                     <p className="lead">Log your <strong>daily activities</strong> and see the 
-                    <strong>real results</strong> every week with insights</p>
-                    <h2>Press Start Below To GO</h2>
+					<strong> data results</strong> every week with your insights.</p>
+					<br />
+					<br />
+                    <h2>Press Start Below</h2>
 					
 					{/* WRAPPER */}
 					<div className="demoWrapper">
@@ -52,24 +78,27 @@ class TimelineSequence extends Component {
 						<div className="bg"></div>
 
 						<div className="content" ref={ div => this.content = div }>
-
-							<h1 ref={ h1 => this.head = h1 }>Design Your Life</h1>
-							<h2 ref={ h2 => this.subhead = h2 }>Start building a better future today by logging your new activities and expanding your horizons, all while tracking your data.</h2>
+                            <br />
+                            <h2 ref={ h1 => this.head = h1 }>Design Your Own Life</h2>
+                            <br />
+							<p ref={ h2 => this.subhead = h2 }>Based on Stanford's Course, Start building a better future 
+							today by logging your new activities and expanding your horizons, all while tracking your data.</p>
 							<div className="info">
-								<img
-									src="https://www.greensock.com/_img/codepen/feature_robust.png"
-									width="240"
-									height="151"
+							<br />
+								<img src="https://i2.wp.com/designsbywinther.com/wp-content/uploads/2018/08/blessed.png?resize=350%2C200&ssl=1"
+									width="200px"
+									height="96px"
 									className="feature"
+									alt="img"
 									ref={ img => this.feature = img }
 								/>
 								<p className="description" ref={ p => this.description = p }>
                                 Start building a better future today by logging your new activities and 
-                                expanding your horizons, all while tracking your data.
+                                expanding your horizons, Personal, Professional, Health, and Creative.
                              </p>
 							</div>
 
-							<div className="nav">
+							<div className="navItem">
 								{ iconsArray.map( (icon, index) => {
 									const { src, width, height } = icon;
 									return <img
@@ -89,26 +118,18 @@ class TimelineSequence extends Component {
 						<button
 							className="btn gsap-btn"
 							onClick={() => this.logoTl.play()}
-						>Start!</button>
-						<button
-							className="btn gsap-btn"
-							onClick={() => this.logoTl.pause()}
-						>Log</button>
-						<button
+						>Start</button>
+						{/*<button
 							className="btn gsap-btn"
 							onClick={() => this.logoTl.reverse()}
-						>Reflect</button>
-						<button
-							className="btn gsap-btn"
-							onClick={() => this.logoTl.restart()}
-						>Repeat</button>
+						>Reload</button>*/}
 					</div>
 
 				</div>
 			</div>
-		</div>;
+		</div>
+	</StyledTimeline>
 	}
-
 }
 
 export default TimelineSequence;

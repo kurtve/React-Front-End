@@ -94,6 +94,7 @@ const AddActivity = props => (
 		<p>Description: {task.description} </p>
 		<p>Created: {task.createdDate} </p>
 		<p>Energy Level: {task.energyLevel} </p>
+		<p>Engagement Level: {task.engagementLevel} </p>
 		<p>Rating: {task.enjoymentLevel} </p>
 		</div>
 		<div className='footer'>

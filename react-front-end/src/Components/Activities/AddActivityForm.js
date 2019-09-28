@@ -5,17 +5,20 @@ import EditTaskForm from './EditTaskForm.js';
 import styled from 'styled-components';
 //import './Activity.css';
 import TimeLine from './TimeLine.js';
+import { withFormik, Form, Field } from 'formik';
+import axios from 'axios';
 
 const StyledAddActivityForm = styled.div`
+background: white;
 .container {
   text-align: center;
   justify-content: center;
-  padding: 25px;
   background: none;
   font-family: 'proxima-nova', sans-serif;
   font-size: 1.6rem;
-  margin-top: 25px;
   height: 100%;
+  background: white;
+  border-radius: 4px;
 }
 .subHead h2{
 	font-family: 'proxima-nova', sans-serif;
@@ -26,7 +29,7 @@ const StyledAddActivityForm = styled.div`
 	font-size: 1.7rem;
 }
 .dropdown {
-	margin-top: 35px;
+	margin-top: 55px;
 	align-content: center;
 }
 .dropdown-content {
@@ -55,13 +58,15 @@ p {
   background: #00bc98;
   border-radius: 8px;
   opacity: 0.9;
+  height: 50px;
+  width: 100%;
 }
 .flex-large {
   display: flex;
   justify-content: center;
   text-align: center;
   flex-flow: row-reverse;
-  background: antiquewhite;
+  background: whitesmoke;
   border-radius: 8px;
   margin: 25px;
   padding: 25px;
@@ -76,8 +81,6 @@ button {
   background: black;
   color: aqua;
   font-weight: 700;
-  cursor: pointer;
-  box-shadow: 2px 2px darkgreen;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   margin: 5px;
 }
@@ -99,15 +102,15 @@ input {
 	justify-content: center;
 }
 .dropbtn {
-  background-color: black;
+  background-color: whitesmoke;
   color: white;
   padding: 16px;
   font-size: 16px;
   height: 85px;
   text-align: center;
   border: none;
-  width: 110px;
-  text-align: center;
+  width: 80px;
+  align-content: center;
 }
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
@@ -116,9 +119,9 @@ input {
 }
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
-  display: none;
+  display: ;
   position: absolute;
-  background-color: #f1f1f1;
+  background-color: whitesmoke;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
@@ -129,12 +132,12 @@ input {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  color:  #fb8570;;
+  color: #00bc98;
 }
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.dropdown-content:hover {background-color: #ddd;}
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.button:hover .dropdown-content {display: block;}
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: aquamarine}
 `;
@@ -145,27 +148,31 @@ const AddActivityForm = () => {
 	 
 		// Initial Data
 		const taskData = [{
-				"userId": undefined, 
-				"activityName":'', 
-				"category":'', 
-				"duration":'', 
-				"description":'', 
-				"createdDate":'', 
-				"energyLevel":'', 
-				"enjoymentLevel":''
-			}]
-		
+			userId: 0, 
+				  activityName:'', 
+				  category:'', 
+				  duration:'', 
+				  description:'', 
+				  createdDate:'', 
+				  energyLevel: 0, 
+				  engagementLevel: 0,
+				  enjoymentLevel: 0
+				}]
 	
 		
 		const initialFormState = 
-		{"userId": undefined, 
-		"activityName":'', 
-		"category":'', 
-		"duration":'', 
-		"description":'', 
-		"createdDate":'', 
-		"energyLevel":'', 
-		"enjoymentLevel":''}
+		{
+		userId: 0,
+		activityName:'', 
+		category:'', 
+		duration:'', 
+		description:'', 
+		createdDate:'', 
+		energyLevel: 0, 
+		engagementLevel: 0,
+		enjoymentLevel: 0
+		}
+	  
 	
 		// Setting State
 		const [ tasks, setTask ] = useState(taskData)
@@ -192,14 +199,14 @@ const AddActivityForm = () => {
 		const editTask = task => {
 			setEditing(true)
 			
-			setCurrentTask({ id: task.id, 
-				"userId": task.userId, 
+			setCurrentTask({ "userId": task.userId, 
 				"activityName": task.activityName, 
 				"category": task.category, 
 				"duration": task.duration, 
 				"description": task.description, 
 				"created": task.createdDate, 
 				"energyLevel": task.energyLevel, 
+				"engagementLevel": task.engagementLevel,
 				"rating": task.enjoymentLevel 
 			}
 		)
@@ -207,13 +214,14 @@ const AddActivityForm = () => {
 	
 		return (
 			<StyledAddActivityForm>
+			
 			<div className="container">
 			<div className="flex-row">
 			<div className="dropdown">
 			
-			<button className="dropbtn">Category Suggest</button>
 			
 			<div className="dropdown-content">
+			{/*<button className="dropbtn">Categories</button>*/}
 			<a href="#">Creative</a>
 			<i className='fas fa-grin-hearts'></i>
 			<a href="#">Meditation</a>
@@ -234,7 +242,7 @@ const AddActivityForm = () => {
 			</div>
 			<TimeLine />
 			</div>
-			
+		
 			<div className="flex-large">
 				{editing ? (
 						<Fragment>
