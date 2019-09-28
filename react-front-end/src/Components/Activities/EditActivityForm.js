@@ -4,7 +4,7 @@ export default function EditActivityForm(props) {
   console.log(props)
 
   // get the id value from the path
-  const id = props.match.params.id;
+  const id = Number.parseInt(props.match.params.id);
 
   // find the activity in the activities array
   const index = props.activities.findIndex(item => item.id === id);
