@@ -7,7 +7,7 @@ import Landing from './Components/Welcome/Landing';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
-import AddActivityForm from './Components/Activities/AddActivityForm';
+import AddActivity from './Components/Activities/AddActivity';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
 
@@ -26,7 +26,6 @@ function App() {
   /*
   const testStatus = {username: 'joe', userID: 4, loggedIn: true};
   const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkUGM3amJXV0R0NXg4Y21KOUY1dy5wLjhvUnJUY2NRMHFDZGExbWYxTVlHMS9wLmEyTTYyUUcifSwic3ViIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwiaWF0IjoxNTY5NTI0ODM5LCJleHAiOjE1Njk2MTEyMzl9.j7Gc3JU0AQ1ryEM_x5KHyeLbFQ6auv5iTMNJxnEtOfI";
-
   localStorage.setItem('DYL_status', JSON.stringify(testStatus));
   localStorage.setItem('DYL_token', testToken);
   */
@@ -114,11 +113,18 @@ function App() {
       )} />
 
       <Route path='/addactivity' render={(props) => (
-        <AddActivityForm {...props} addActivity={addActivity} status={status} />
+
+        <AddActivity {...props} addActivity={addActivity} activities={activities} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (
-        <EditActivityForm {...props} editActivity={editActivity} status={status} />
+        <EditActivityForm {...props} editActivity={editActivity} activities={activities} status={status} />
+       /*
+        <AddActivity {...props} addActivity={addActivity} activities={activities} />
+      )} />
+      <Route path='/editactivity/:id' render={(props) => (
+        <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
+      */
       )} />
 
     </StyledApp>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 export default function Search(props) {
-  console.log(props)
 
   const [inputValue, setInputValue] = useState('')
 
@@ -28,9 +27,3 @@ export default function Search(props) {
     </form>
   )
 }
-
-// form is unfocusing after one character input. this means that react is updating the component after every character.
-// need to figure out why that is. i think once that is handled, the rest should be pretty straightforward
-
-// the solution is to hold the input value in local state and only send it to the parent function onSubmit
-
