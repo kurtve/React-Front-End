@@ -81,11 +81,11 @@ export default function EditActivityForm(props) {
           defaultValue={activity.rating}
         >
           <option value="" disabled>Rate your experience</option>
-          <option value="1">&#11088;</option>
-          <option value="2">&#11088;&#11088;</option>
-          <option value="3">&#11088;&#11088;&#11088;</option>
-          <option value="4">&#11088;&#11088;&#11088;&#11088;</option>
-          <option value="5">&#11088;&#11088;&#11088;&#11088;&#11088;</option>
+          <option value="1"><span role='img' aria-label='1 star'>&#11088;</span></option>
+          <option value="2"><span role='img' aria-label='2 star'>&#11088;&#11088;</span></option>
+          <option value="3"><span role='img' aria-label='3 star'>&#11088;&#11088;&#11088;</span></option>
+          <option value="4"><span role='img' aria-label='4 star'>&#11088;&#11088;&#11088;&#11088;</span></option>
+          <option value="5"><span role='img' aria-label='5 star'>&#11088;&#11088;&#11088;&#11088;&#11088;</span></option>
         </select>
 
         <input 
