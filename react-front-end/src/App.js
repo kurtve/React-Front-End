@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
+import background from './Assets/background3.jpg'
 import styled from 'styled-components';
 
 import Nav from './Components/Nav/Nav';
@@ -7,7 +8,7 @@ import Landing from './Components/Welcome/Landing';
 import ActivitiesFeed from './Components/Activities/ActivitesFeed';
 import ConfirmDelete from './Components/Activities/ConfirmDelete';
 import Insights from './Components/Insights/Insights';
-import AddActivity from './Components/Activities/AddActivity';
+import AddActivityForm from './Components/Activities/AddActivityForm';
 import EditActivityForm from './Components/Activities/EditActivityForm';
 
 
@@ -21,6 +22,20 @@ function App() {
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      height: 100vh;
+      width: 100vw;
+      background: url(${background}), rgba(0,0,0,.4);
+      background-attachment: fixed, fixed;
+      background-size: cover, cover;
+      background-position: center, center;
+      background-blend-mode: multiply;
+    }
   `
 
   /*
@@ -116,7 +131,7 @@ function App() {
       )} />
 
       <Route path='/addactivity' render={(props) => (
-        <AddActivity {...props} addActivity={addActivity} activities={activities} status={status} />
+        <AddActivityForm {...props} addActivity={addActivity} activities={activities} status={status} />
       )} />
 
       <Route path='/editactivity/:id' render={(props) => (

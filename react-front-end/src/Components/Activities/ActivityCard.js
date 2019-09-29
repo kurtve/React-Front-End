@@ -13,6 +13,11 @@ const StyledActivityCard = styled.div `
 	border: 3px solid #00bc98;
 	border-radius: 20px;
 	padding: 10px;
+	background: #eeeeeedd;
+	transition: all .3s ease;
+	&:hover {
+		transform: scale(1.05);
+	}
 
 	h1 {
 		font-size: 3rem;

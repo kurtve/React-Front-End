@@ -13,10 +13,14 @@ const StyledWelcome = styled.div `
 	h1 {
 		font-size: 4rem;
 		margin: 20px;
+		color: white;
+		text-align: center;
 	}
 	h3 {
-		font-size: 2.4rem;
+		font-size: 2rem;
 		margin: 10px;
+		color: white;
+		text-align: center;
 	}
 	.navlinks {
 		display: flex;
@@ -30,12 +34,17 @@ const StyledWelcome = styled.div `
 		margin: 10px;
 		height: 35px;
 		width: 220px;
-		background-color: #00bc98;
+		background-color: #00bc9866;
 		color: white;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		border-radius: 10px;
+		transition: all .2s ease;
+		&:hover {
+			transform: scale(1.05);
+			background: #00bc98;
+		}
 		i {
 			font-size: 1.6rem;
 			margin-right: 20px;
@@ -49,6 +58,7 @@ export default function Welcome(props) {
   return (
     <StyledWelcome>
       <h1>Design Your Life</h1>
+			<h3>What are you doing? <br />Click <i className="fas fa-plus"></i> New Activity to document it.</h3>
 
       <div className='navlinks'>
       	<Link to='/'><i className="fas fa-home"></i>Home</Link>

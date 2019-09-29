@@ -14,6 +14,7 @@ const StyledActivitiesFeed = styled.div `
 	h1 {
 		font-size: 3rem;
 		margin: 20px;
+		color: white;
 	}
 `;
 

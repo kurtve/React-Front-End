@@ -46,9 +46,10 @@ export default function EditActivityForm(props) {
 
   return (
     <div className="formContainer editForm">
-      <form onSubmit={handleSubmit} style={{marginTop: '100px'}}>
 
-        <h1>Edit activity</h1>
+      <h1>Edit activity</h1>
+      
+      <form onSubmit={handleSubmit} style={{marginTop: '100px'}}>
 
         <input 
           type="text" 
@@ -110,8 +111,10 @@ export default function EditActivityForm(props) {
           onChange={handleChange}
         />
 
-        <button onClick={cancel}>Cancel</button>
-        <button type="submit" className="confirmButton">Edit</button>
+        <div className="footer">
+          <button onClick={cancel} className="delete">Cancel</button>
+          <button type="submit" className="edit confirmButton">Edit</button>
+        </div>
 
       </form>
     </div>
