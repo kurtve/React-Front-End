@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 
 export default function Search(props) {
+  console.log('-------search component------')
+  console.log(props)
 
   const [inputValue, setInputValue] = useState(props.search)
 
@@ -14,16 +16,20 @@ export default function Search(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input 
-        type="text"
-        name="search"
-        placeholder="Search..."
-        value={inputValue}
-        key={props.search}
-        onChange={handleChange}
-      />
-      <button type="submit">Submit</button>
-    </form>
+    <>
+    {props.status.loggedIn === true &&
+      <form onSubmit={handleSubmit}>
+        <input 
+          type="text"
+          name="search"
+          placeholder="Search..."
+          value={inputValue}
+          key={props.search}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+    }
+    </>
   )
 }

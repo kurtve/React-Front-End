@@ -107,10 +107,13 @@ export default function Nav(props) {
     <StyledTopNav>
 
       <div className="nav-inner">
-        <Search search={props.search} setSearch={props.setSearch} />
+        <Search {...props} status={props.status} setStatus={props.setStatus} search={props.search} setSearch={props.setSearch} />
 
         <Link to="/">
-          <img className='logo' src={logo} alt="Design Your Life" />
+        {
+          props.status.loggedIn === true ? <img className='logo' src={logo} alt="Design Your Life" /> : <img className='logo' style={{transform: 'translateX(5px)'}} src={logo} alt="Design Your Life" />
+        }
+          
         </Link>
 
         <LogoutButton {...props} status={props.status} setStatus={props.setStatus}/>
