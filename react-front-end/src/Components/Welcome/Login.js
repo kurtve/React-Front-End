@@ -9,7 +9,11 @@ const StyledLogin = styled.div `
   align-items: center;
   flex-direction: flex-start;
   margin-top: 100px;
-  color: white;
+  color: black;
+  background: #eeeeeedd;
+  padding: 5% 2% 10% 2%;
+  border: 3px solid #00bc98;
+  border-radius: 10px;
 
   h1 {
     font-size: 4rem;
