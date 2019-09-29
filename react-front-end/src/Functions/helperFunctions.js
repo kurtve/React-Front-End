@@ -1,10 +1,6 @@
 import axios from 'axios';
 
 
-//const dummyDateString = (new Date()).toUTCString();
-//const dummyWeekString = (new Date()).toDateString();
-
-
 export const baseURL = 'https://design-your-life-backend.herokuapp.com/';
 
 
@@ -61,9 +57,6 @@ export const register = (setLogin, username, password, email) => {
     })
     .then(res => {
       // success!
-      console.log('register axios POST call res.data');
-      console.log(res.data);
-
       setLogin({
         username: username,
         password: password,
@@ -75,9 +68,6 @@ export const register = (setLogin, username, password, email) => {
     })
     .catch(err => {
       // failure!
-      console.log('register axios POST call err');
-      console.log(err);
-
       setLogin({
         username: username,
         password: password,
@@ -101,9 +91,6 @@ export const login = (setStatus, setLogin, username, password) => {
     })
     .then(res => {
       // success!
-      console.log('login axios POST call res.data');
-      console.log(res.data);
-
       const newStatus = {
         username: username,
         userID:  res.data.userID,
@@ -118,9 +105,6 @@ export const login = (setStatus, setLogin, username, password) => {
     })
     .catch(err => {
       // failure!
-      console.log('login axios POST call err');
-      console.log(err);
-
       // let the user know that the login failed
       setLogin({
         username: username,
@@ -277,9 +261,6 @@ export const getActivities = (userID, setActivities) => {
       headers: { Authorization: localStorage.getItem("DYL_token") }
     })
     .then(res => {
-      console.log('getActivities axios GET call res.data');
-      console.log(res.data);
-
       // map activity array to front-end format and
       // reverse the order before updating state
       const newArray = res.data.map((item, idx) => activityB2F(item, idx));
@@ -287,9 +268,6 @@ export const getActivities = (userID, setActivities) => {
       setActivities(newArray);
     })
     .catch(err => {
-      console.log('getActivities axios GET call err');
-      console.log(err);
-
       if (err.response.status === 401) {
         // invalid token--perhaps expired? force a re-login
         localStorage.removeItem("DYL_token");
@@ -307,9 +285,6 @@ export const getInsights = (userID, setInsights) => {
       headers: { Authorization: localStorage.getItem("DYL_token") }
     })
     .then(res => {
-      console.log('getInsights axios GET call res.data');
-      console.log(res.data);
-
       // map insight array to front-end format and
       // reverse the order before updating state
       const newArray = res.data.map((item) => insightB2F(item));
@@ -317,9 +292,6 @@ export const getInsights = (userID, setInsights) => {
       setInsights(newArray);
     })
     .catch(err => {
-      console.log('getInsights axios GET call err');
-      console.log(err);
-
       if (err.response.status === 401) {
         // invalid token--perhaps expired? force a re-login
         localStorage.removeItem("DYL_token");
@@ -342,16 +314,11 @@ export const addActivity = (status, setStatus, activity) => {
     })
     .then(res => {
       // success!
-      console.log('addActivity axios POST call res.data');
-      console.log(res.data);
-
       // update the status to force a reload of the data
       setStatus({ ...status, counter: status.counter + 1 });
     })
     .catch(err => {
       // failure!
-      console.log('addActivity axios POST call err');
-      console.log(err);
 
       // TODO: send a message to the user?
 
@@ -377,17 +344,12 @@ export const addInsight = (status, setStatus, insight) => {
     })
     .then(res => {
       // success!
-      console.log('addInsight axios POST call res.data');
-      console.log(res.data);
-
       // update the status to force a reload of the data
       setStatus({ ...status, counter: status.counter + 1 });
     })
     .catch(err => {
       // failure!
-      console.log('addInsight axios POST call err');
-      console.log(err);
-
+      
       // TODO: send a message to the user?
 
       if (err.response.status === 401) {
