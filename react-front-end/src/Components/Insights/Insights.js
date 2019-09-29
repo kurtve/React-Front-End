@@ -110,9 +110,9 @@ export default function Insights(props) {
       font-size: 1.6rem;
       margin: 5px;
     }
-    & .timestamp {
-      font-size: 1.2rem;
-      font-style: italic;
+    & .date {
+      font-size: 1.6rem;
+      margin: 5px;
     }
 
   `
@@ -198,7 +198,7 @@ export default function Insights(props) {
                     <div className='rating'>Rating: {entry.rating} stars</div>
                     <div className='time'>Duration: {timeInHours(entry.time)} hours</div>
                     <div className='notes'>{entry.notes}</div>
-                    <div className='timestamp'>Created: {entry.created.substring(0, 16)}</div>
+                    <div className='date'>Date: {entry.date}</div>
 
                   </div>
                 </StyledActivityCard>

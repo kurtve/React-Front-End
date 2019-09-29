@@ -133,8 +133,7 @@ export const activityB2F = (act, id) => {
     notes: '',
     rating: '',
     time: 0,
-    created: '',
-    updated: null
+    date: ''
   };
 
   mappedAct.id = id;
@@ -142,8 +141,8 @@ export const activityB2F = (act, id) => {
   mappedAct.category = act.category;
   mappedAct.notes = act.description;
   mappedAct.time = Number.parseInt(act.duration);
-  mappedAct.created = act.createdDate;
   mappedAct.rating = act.enjoymentLevel;
+  mappedAct.date = act.createdDate.substring(0, 10);
 
   return mappedAct;
 };
@@ -169,7 +168,7 @@ export const activityF2B = (act, userID) => {
   mappedAct.category = act.category;
   mappedAct.description = act.notes;
   mappedAct.duration = act.time.toString() + ' minutes';
-  mappedAct.createdDate = act.created ? act.created : (new Date()).toUTCString();
+  mappedAct.createdDate = act.date;
   mappedAct.userId = userID;
   mappedAct.enjoymentLevel = act.rating;
 
@@ -308,7 +307,6 @@ export const addActivity = (status, setStatus, activity) => {
 
   // change activity to the format the backend expects
   const b_activity = activityF2B(activity, status.userID);
-  console.log(b_activity);
 
   axios
     .post(`${baseURL}api/activity`, b_activity, {
@@ -338,7 +336,6 @@ export const addInsight = (status, setStatus, insight) => {
 
   // change insight to the format the backend expects
   const b_insight = insightF2B(insight, status.userID);
-  console.log(b_insight);
 
   axios
     .post(`${baseURL}api/reflection`, b_insight, {
