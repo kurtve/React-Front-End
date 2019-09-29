@@ -24,6 +24,7 @@ export default function AddActivityForm(props) {
     e.preventDefault()
     props.addActivity(input)
     setInput(initialState)
+    props.history.push('/activities');
   }
 
   return (
