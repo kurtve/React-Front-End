@@ -38,21 +38,11 @@ function App() {
     }
   `
 
-  /*
-  const testStatus = {username: 'joe', userID: 4, loggedIn: true};
-  const testToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwicGFzc3dvcmQiOiIkMmEkMTAkUGM3amJXV0R0NXg4Y21KOUY1dy5wLjhvUnJUY2NRMHFDZGExbWYxTVlHMS9wLmEyTTYyUUcifSwic3ViIjoyMiwidXNlcm5hbWUiOiJqb2UiLCJlbWFpbCI6ImpvZUBqb2UuY29tIiwiaWF0IjoxNTY5NTI0ODM5LCJleHAiOjE1Njk2MTEyMzl9.j7Gc3JU0AQ1ryEM_x5KHyeLbFQ6auv5iTMNJxnEtOfI";
-  localStorage.setItem('DYL_status', JSON.stringify(testStatus));
-  localStorage.setItem('DYL_token', testToken);
-  */
-
 
   // check local storage to see if we are already logged in
   // status object looks like {username, userID, loggedIn}
   const currentStatus = helpers.getStatus();
 
-  // REMOVE AFTER TESTING
-  console.log('in App');
-  console.log(currentStatus);
 
   const [status, setStatus] = useState(currentStatus);
 
@@ -71,8 +61,8 @@ function App() {
 
 
 
-  // helpers.add adds an item to an array in state
-  // it will add an id and timestamp to the object before adding it to the list
+  // helpers.addActivity and addInsight post new
+  // items to the backend
   const addActivity = (newActivity) => {
     helpers.addActivity(status, setStatus, newActivity);
   };
@@ -138,13 +128,6 @@ function App() {
         <EditActivityForm {...props} editActivity={editActivity} activities={activities} status={status} />
       )} />
 
-       {/*
-        <AddActivity {...props} addActivity={addActivity} activities={activities} />
-      )} />
-
-      <Route path='/editactivity/:id' render={(props) => (
-        <EditActivityForm {...props} editActivity={editActivity} activities={activities} />
-      */}
 
     </StyledApp>
   );
