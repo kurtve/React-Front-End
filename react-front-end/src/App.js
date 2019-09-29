@@ -30,7 +30,7 @@ function App() {
       z-index: -1;
       height: 100vh;
       width: 100vw;
-      background: url(${background}), rgba(0,0,0,.3);
+      background: url(${background}), rgba(0,0,0,.1);
       background-attachment: fixed, fixed;
       background-size: cover, cover;
       background-position: center, center;

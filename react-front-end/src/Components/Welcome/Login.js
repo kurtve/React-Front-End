@@ -9,6 +9,7 @@ const StyledLogin = styled.div `
   align-items: center;
   flex-direction: flex-start;
   margin-top: 100px;
+  color: white;
 
   h1 {
     font-size: 4rem;
@@ -52,6 +53,9 @@ const StyledLogin = styled.div `
       height: 30px;
       width: 280px;
       font-size: 1.4rem;
+      background: none;
+      border: none;
+      border-bottom: 1px solid white;
     }
 
     label {
