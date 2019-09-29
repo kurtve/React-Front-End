@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import Slider from 'react-slick'
 import "slick-carousel/slick/slick.css"
 
-export default function Insights({ insights, activities, addInsight, editInsight, deleteInsight}) {
+export default function Insights(props) {
+  const { insights, activities, addInsight, editInsight, deleteInsight } = props;
 
   const StyledInsights = styled.div `
     text-align: center;
@@ -128,6 +129,22 @@ export default function Insights({ insights, activities, addInsight, editInsight
     }
   `
 
+  // for applying the search string to the activities
+  const match = (search, item) => {
+    const lc_search = search.toLowerCase();
+    const name = item.name.toLowerCase();
+    const notes = item.notes.toLowerCase();
+    const result = name.includes(lc_search) || notes.includes(lc_search);
+    return result;
+  }
+
+
+  // if user is not logged in, return to top
+  if (!props.status.loggedIn) {
+    props.history.push('/');
+  }
+
+
   return (
     <>
       <StyledInsights>
@@ -145,7 +162,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
             autoplaySpeed={4000} 
             arrows={false}
           >
-            {activities.map((entry, index) => {
+            {activities.filter(item => match(props.search, item)).map((entry, index) => {
               return(
                 <StyledActivityCard key={index}>
                   <div className="card-inner">

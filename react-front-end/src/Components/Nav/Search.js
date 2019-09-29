@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function Search(props) {
 
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState(props.search)
 
   const handleChange = e => {
     setInputValue(e.target.value)

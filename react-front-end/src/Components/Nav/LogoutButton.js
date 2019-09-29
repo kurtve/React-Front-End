@@ -15,7 +15,7 @@ export default function LogoutButton(props) {
       {props.status.loggedIn === true && 
         <div>
           <div>
-            <i class="fas fa-user-check"></i>
+            <i className="fas fa-user-check"></i>
             <p className="username">{props.status.username}</p>
           </div>
           <button className='logout' onClick={logoutHandler}>Log Out</button>
