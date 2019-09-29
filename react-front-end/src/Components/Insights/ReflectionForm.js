@@ -14,13 +14,11 @@ export default function ReflectionForm(props) {
       ...reflection,
       [e.target.name]: e.target.value
     })
-    console.log(reflection)
   }
 
   const handleSubmit = e => {
     e.preventDefault()
     props.addInsight(reflection)
-    console.log(props.insights)
     setReflection(initialValue)
   }
 

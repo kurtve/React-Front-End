@@ -104,7 +104,7 @@ export default function ActivityCard(props) {
     	<StyledActivityCard>
 	    	<div className='name'>{props.activity.name}</div>
     		<div className='category'>Category: {props.activity.category}</div>
-    		<div className='rating'>Rating: {props.activity.rating}</div>
+    		<div className='rating'>Rating: {props.activity.rating} stars</div>
     		<div className='time'>Duration: {timeInHours} hours</div>
     		<div className='notes'>{props.activity.notes}</div>
     		<div className='timestamps'>Created: {props.activity.created.substring(0, 16)}

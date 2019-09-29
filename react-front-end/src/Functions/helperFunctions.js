@@ -143,6 +143,7 @@ export const activityB2F = (act, id) => {
   mappedAct.notes = act.description;
   mappedAct.time = Number.parseInt(act.duration);
   mappedAct.created = act.createdDate;
+  mappedAct.rating = act.enjoymentLevel;
 
   return mappedAct;
 };
@@ -170,6 +171,7 @@ export const activityF2B = (act, userID) => {
   mappedAct.duration = act.time.toString() + ' minutes';
   mappedAct.createdDate = act.created ? act.created : (new Date()).toUTCString();
   mappedAct.userId = userID;
+  mappedAct.enjoymentLevel = act.rating;
 
   return mappedAct;
 };

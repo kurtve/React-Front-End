@@ -90,10 +90,31 @@ export default function Insights(props) {
     &:hover {
       transform: scale(1.05);
     }
-    & h3 {
-      font-size: 1.8rem;
-      text-transform: uppercase;
+    & .name {
+      font-size: 2.2rem;
     }
+    & .category {
+      font-size: 2.0rem;
+      text-transform: uppercase;
+      margin: 5px;
+    }
+    & .rating {
+      font-size: 1.6rem;
+      margin: 5px;
+    }
+    & .time {
+      font-size: 1.6rem;
+      margin: 5px;
+    }
+    & .notes {
+      font-size: 1.6rem;
+      margin: 5px;
+    }
+    & .timestamp {
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
   `
 
   const StyledReflectionCard = styled.div `
@@ -139,7 +160,12 @@ export default function Insights(props) {
   }
 
 
-  // if user is not logged in, return to top
+  const timeInHours = (time) => {
+    return Math.round(time / 6) / 10;
+  };
+
+
+  // if user is not logged in, return to top level
   if (!props.status.loggedIn) {
     props.history.push('/');
   }
@@ -166,9 +192,14 @@ export default function Insights(props) {
               return(
                 <StyledActivityCard key={index}>
                   <div className="card-inner">
-                    <h3>{entry.name} | <span>{entry.category}</span></h3>
-                    <p>Rating: {entry.rating}</p>
-                    <p>{(entry.time / 60).toFixed(1)} hours</p>
+
+                    <div className='name'>{entry.name}</div>
+                    <div className='category'>{entry.category}</div>
+                    <div className='rating'>Rating: {entry.rating} stars</div>
+                    <div className='time'>Duration: {timeInHours(entry.time)} hours</div>
+                    <div className='notes'>{entry.notes}</div>
+                    <div className='timestamp'>Created: {entry.created.substring(0, 16)}</div>
+
                   </div>
                 </StyledActivityCard>
               )
