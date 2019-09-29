@@ -9,7 +9,7 @@ const StyledWelcome = styled.div `
 	flex-direction: column;
 	align-items: center;
 	flex-direction: flex-start;
-	margin-top: 100px;
+	margin-top: 150px;
 	h1 {
 		font-size: 4rem;
 		margin: 20px;
@@ -34,7 +34,7 @@ const StyledWelcome = styled.div `
 		margin: 10px;
 		height: 35px;
 		width: 220px;
-		background-color: #00bc9866;
+		background: linear-gradient(to right, #00bc98bb, #98f7e5bb);
 		color: white;
 		display: flex;
 		justify-content: center;
@@ -43,7 +43,7 @@ const StyledWelcome = styled.div `
 		transition: all .2s ease;
 		&:hover {
 			transform: scale(1.05);
-			background: #00bc98;
+			background: linear-gradient(to right, #00bc98, #98f7e5);
 		}
 		i {
 			font-size: 1.6rem;
@@ -57,7 +57,7 @@ export default function Welcome(props) {
 
   return (
     <StyledWelcome>
-      <h1>Design Your Life</h1>
+      
 			<h3>What are you doing? <br />Click <i className="fas fa-plus"></i> New Activity to document it.</h3>
 
       <div className='navlinks'>

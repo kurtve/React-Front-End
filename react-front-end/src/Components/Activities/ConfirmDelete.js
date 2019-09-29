@@ -14,6 +14,7 @@ const StyledConfirmDelete = styled.div `
 	border-radius: 20px;
 	padding: 10px;
 	margin-top: 140px;
+	background: #eeeeeedd;
 
 	h1 {
 		font-size: 3rem;

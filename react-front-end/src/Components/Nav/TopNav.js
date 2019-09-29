@@ -17,7 +17,7 @@ export default function Nav(props) {
     justify-content: center;
     align-items: center;
     height: auto;
-    background: linear-gradient(to right, #00bc98dd, #98f7e5aa);
+    background: linear-gradient(to right, #00bc98ee, #98f7e5ee);
 
     & .nav-inner {
       width: 450px;

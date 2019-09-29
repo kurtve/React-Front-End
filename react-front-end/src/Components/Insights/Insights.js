@@ -17,7 +17,11 @@ export default function Insights({ insights, activities, addInsight, editInsight
       color: white;
     }
     & form {
+      background: #eeeeeedd;
       margin: 20px 0;
+      padding: 5%;
+      border: 3px solid #00a0ba;
+      border-radius: 10px;
       display: flex;
       flex-direction: column;
       align-items: space-around;
@@ -34,7 +38,7 @@ export default function Insights({ insights, activities, addInsight, editInsight
         padding: 0 5%;
         font-family: inherit;
         font-size: 1.6rem;
-        color: white;
+        color: black;
         border: none;
         border-bottom: 1px solid #eee;
         background: none;
