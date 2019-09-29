@@ -110,8 +110,10 @@ export default function EditActivityForm(props) {
           onChange={handleChange}
         />
 
-        <button onClick={cancel}>Cancel</button>
-        <button type="submit" className="confirmButton">Edit</button>
+        <div className="footer">
+          <button onClick={cancel} className="delete">Cancel</button>
+          <button type="submit" className="edit confirmButton">Edit</button>
+        </div>
 
       </form>
     </div>

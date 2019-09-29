@@ -8,12 +8,13 @@ export default function Insights({ insights, activities, addInsight, editInsight
 
   const StyledInsights = styled.div `
     text-align: center;
-    margin-bottom: 30px;
+    margin: 100px 0 30px 0;
     & h1 {
       font-size: 2.6rem;
       text-transform: uppercase;
       letter-spacing: .2rem;
-      margin: 30px 0;
+      margin: 30px 0 15px 0;
+      color: white;
     }
     & form {
       margin: 20px 0;
@@ -33,8 +34,10 @@ export default function Insights({ insights, activities, addInsight, editInsight
         padding: 0 5%;
         font-family: inherit;
         font-size: 1.6rem;
+        color: white;
         border: none;
-        border-bottom: 1px solid #00a0ba;
+        border-bottom: 1px solid #eee;
+        background: none;
       }
       & button {
         background: #ec8b76;
@@ -77,6 +80,11 @@ export default function Insights({ insights, activities, addInsight, editInsight
     margin: 20px 0;
     padding: 3%;
     outline: none;
+    color: white;
+    transition: all .3s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
     & h3 {
       font-size: 1.8rem;
       text-transform: uppercase;
@@ -91,6 +99,11 @@ export default function Insights({ insights, activities, addInsight, editInsight
     border-radius: 10px;
     border: 3px solid #d9eeff;
     box-shadow: 0 1rem 1rem rgba(0,0,0,.6);
+    background: #eeeeeedd;
+    transition: all .3s ease;
+    &:hover {
+      transform: scale(1.05);
+    }
     & > * {
       margin-bottom: 10px;
     }
@@ -124,8 +137,8 @@ export default function Insights({ insights, activities, addInsight, editInsight
             slidesToShow={1}
             slidesToScroll={1}
             infinite={false}
-            autoplay={false}
-            autoplaySpeed={6000} 
+            autoplay={true}
+            autoplaySpeed={4000} 
             arrows={false}
           >
             {activities.map((entry, index) => {

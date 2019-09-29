@@ -27,7 +27,8 @@ code {
 
 .formContainer {
   text-align: center;
-  margin: 100px 0;
+  margin: 120px 0;
+  width: 400px;
 }
 
 .formContainer h1 {
@@ -41,7 +42,7 @@ code {
   margin: 20px 0;
   border: 3px solid #00bc98;
   border-radius: 10px;
-  padding: 10%;
+  padding: 5% 8%;
   display: flex;
   flex-direction: column;
   align-items: space-around;
@@ -79,7 +80,7 @@ code {
   font-weight: 500;
   letter-spacing: .15rem;
   width: auto;
-  margin: 15px auto 0 auto;
+  margin: 15px 40px 0 40px;
   border: 1px solid transparent;
   border-radius: 10px;
   padding: 2% 4%;
@@ -99,6 +100,5 @@ code {
 }
 
 .editForm {
-  margin-top: 0;
-  width: 400px;
+  margin-top: 25px;
 }

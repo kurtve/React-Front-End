@@ -13,10 +13,12 @@ const StyledWelcome = styled.div `
 	h1 {
 		font-size: 4rem;
 		margin: 20px;
+		color: white;
 	}
 	h3 {
-		font-size: 2.4rem;
+		font-size: 2rem;
 		margin: 10px;
+		color: white;
 	}
 	.navlinks {
 		display: flex;
@@ -30,7 +32,7 @@ const StyledWelcome = styled.div `
 		margin: 10px;
 		height: 35px;
 		width: 220px;
-		background-color: #00bc98;
+		background-color: #00bc98dd;
 		color: white;
 		display: flex;
 		justify-content: center;
@@ -49,6 +51,7 @@ export default function Welcome(props) {
   return (
     <StyledWelcome>
       <h1>Design Your Life</h1>
+			<h3>Take the guess-work out of your future.</h3>
 
       <div className='navlinks'>
       	<Link to='/'><i className="fas fa-home"></i>Home</Link>

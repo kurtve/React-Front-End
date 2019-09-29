@@ -27,7 +27,8 @@ export default function AddActivityForm(props) {
   }
 
   return (
-    <>
+    <div className="formContainer">
+      <h1>Add an activity</h1>
       <form onSubmit={handleSubmit}>
 
         <input 
@@ -90,19 +91,6 @@ export default function AddActivityForm(props) {
 
       </form>
 
-      {/* {props.activities.map((entry, index) => {
-        return(
-          <div key={index} style={{border: '1px solid green', margin: '20px'}}>
-            <p>{entry.name}</p>
-            <p>{entry.category}</p>
-            <p>Rating: {entry.rating}</p>
-            <p>Duration: {(entry.time / 60).toFixed(2)} hrs</p>
-            <p>Notes: {entry.notes}</p>
-            <p>Entry date: {entry.date}</p>
-          </div>
-        )
-      })} */}
-
-    </>
+    </div>
   )
 }

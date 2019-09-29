@@ -17,7 +17,7 @@ export default function Nav(props) {
     justify-content: center;
     align-items: center;
     height: auto;
-    background: #00bc98;
+    background: linear-gradient(to right, #00bc98dd, #98f7e5aa);
 
     & .nav-inner {
       width: 450px;
@@ -25,41 +25,49 @@ export default function Nav(props) {
       justify-content: space-around;
       align-items: center;
 
+      & i.fa-user-check {
+        color: white;
+        border: 1px solid white;
+        border-radius: 50%;
+        padding: 7%;
+        transform: translate(-90%, 90%);
+      }
+
       & .username {
         color: white;
         font-size: 16px;
         font-style: italic;
+        text-align: center;
       }
 
       & .logout {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
         text-decoration: none;
-        ${'' /* margin-top: 30px; */}
+        margin-top: 5px;
         height: 30px;
-        width: 120px;
-        background-color: #fb8570;
+        background-color: transparent;
         color: white;
         display: flex;
         justify-content: center;
         align-items: center;
-        border-radius: 8px;
-        border: none;
+        border: 1px solid transparent;
+        transition: all .4s ease;
         &:hover {
           cursor: pointer;
+          border-bottom: 1px solid white;
         }
       }
 
       & .logo {
         height: 50px;
         width: auto;
+        transform: translateX(-16px);
       }
 
       & form {
         display: flex;
         flex-direction: column;
-        ${'' /* margin-right: 0;
-        padding-right: 0; */}
-        width: 20%;
+        width: 25%;
 
         & input {
           border: 1px solid white;
@@ -72,26 +80,23 @@ export default function Nav(props) {
           margin-bottom: 10px;
           transition: all .2s ease-in-out;
           &:hover, &:active, &:focus {
-            width: 150%;
+            width: 140%;
             background: white;
             color: black;
           }
         }
-
         & button {
-          width: 100%;
-          border: 1px solid white;
-          background: transparent;
-          color: white;
-          font-size: 1.2rem;
-          text-transform: uppercase;
           border-radius: 10px;
-          transition: all .2s ease-in-out;
+          border: 1px solid transparent;
+          font-family: inherit;
+          transition: all .2s ease;
           &:hover {
-            box-shadow: .25rem .25rem .5rem rgba(0,0,0,.6);
-            background: white;
-            color: black;
+            background: #fb8570;
+            border: 1px solid #fb8570;
+            color: white;
             cursor: pointer;
+            letter-spacing: .2rem;
+            text-transform: uppercase;
           }
         }
       }
@@ -102,13 +107,13 @@ export default function Nav(props) {
     <StyledTopNav>
 
       <div className="nav-inner">
-        <LogoutButton {...props} status={props.status} setStatus={props.setStatus}/>
+        <Search search={props.search} setSearch={props.setSearch} />
 
         <Link to="/">
           <img className='logo' src={logo} alt="Design Your Life" />
         </Link>
 
-        <Search search={props.search} setSearch={props.setSearch} />
+        <LogoutButton {...props} status={props.status} setStatus={props.setStatus}/>
       </div>
 
     </StyledTopNav>

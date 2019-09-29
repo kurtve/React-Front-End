@@ -2,7 +2,6 @@ import React from 'react'
 import * as helpers from '../../Functions/helperFunctions';
 
 export default function LogoutButton(props) {
-  console.log('-_-_-_-_-_-_-', props)
 
   const logoutHandler = (e) => {
     e.preventDefault();
@@ -15,7 +14,10 @@ export default function LogoutButton(props) {
     <>
       {props.status.loggedIn === true && 
         <div>
-          <p className="username">{props.status.username}</p>
+          <div>
+            <i class="fas fa-user-check"></i>
+            <p className="username">{props.status.username}</p>
+          </div>
           <button className='logout' onClick={logoutHandler}>Log Out</button>
         </div>
       }

@@ -14,7 +14,7 @@ export default function BottomNav() {
     padding: 0 10%;
     justify-content: space-between;
     align-items: center;
-    background: #00bc98;
+    background: linear-gradient(to right, #00bc98dd, #98f7e5aa);
 
     & div {
       width: 400px;
