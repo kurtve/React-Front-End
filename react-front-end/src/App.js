@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import background from './Assets/background2.jpg'
+import background from './Assets/background3.jpg'
 import styled from 'styled-components';
 
 import Nav from './Components/Nav/Nav';
@@ -30,7 +30,7 @@ function App() {
       z-index: -1;
       height: 100vh;
       width: 100vw;
-      background: url(${background}), rgba(0,0,0,.1);
+      background: url(${background}), rgba(0,0,0,.4);
       background-attachment: fixed, fixed;
       background-size: cover, cover;
       background-position: center, center;
