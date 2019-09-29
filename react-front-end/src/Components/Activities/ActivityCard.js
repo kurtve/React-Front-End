@@ -97,12 +97,15 @@ export default function ActivityCard(props) {
 		props.history.push(`/editactivity/${id}`);
 	};
 
+
+	const timeInHours = Math.round(props.activity.time / 6) / 10;
+
 	return (
     	<StyledActivityCard>
 	    	<div className='name'>{props.activity.name}</div>
     		<div className='category'>Category: {props.activity.category}</div>
     		<div className='rating'>Rating: {props.activity.rating}</div>
-    		<div className='time'>Duration: {props.activity.time} minutes</div>
+    		<div className='time'>Duration: {timeInHours} hours</div>
     		<div className='notes'>{props.activity.notes}</div>
     		<div className='timestamps'>Created: {props.activity.created.substring(0, 16)}
     			{props.activity.updated && `Updated: ${props.activity.updated.substring(0, 16)}`}</div>
