@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+// import { useSpring, animated } from 'react-spring'
 
 const StyledActivityCard = styled.div `
 	display: flex;
@@ -86,7 +86,7 @@ const StyledActivityCard = styled.div `
 `;
 
 
-export default function ActivityCard(props) {
+export default function ActivityCard({activity}) {
 
 	const deleteActivity = (id) => {
 		props.history.push(`/deleteactivity/${id}`);
@@ -96,24 +96,37 @@ export default function ActivityCard(props) {
 		props.history.push(`/editactivity/${id}`);
 	};
 
+	// const props = useSpring({
+	// 	to: {
+	// 		opacity: 1,
+	// 		transform: 'translateY(0)'
+	// 	},
+	// 	from: {
+	// 		opacity: 0,
+	// 		transform: 'translateY(50px)'
+	// 	}
+	// })
 
-	const timeInHours = Math.round(props.activity.time / 6) / 10;
+
+	const timeInHours = Math.round(activity.time / 6) / 10;
 
 	return (
+		// <animated.div style={props}>
     	<StyledActivityCard>
-	    	<div className='name'>{props.activity.name}</div>
-    		<div className='category'>Category: {props.activity.category}</div>
-    		<div className='rating'>Rating: {props.activity.rating} stars</div>
+	    	<div className='name'>{activity.name}</div>
+    		<div className='category'>Category: {activity.category}</div>
+    		<div className='rating'>Rating: {activity.rating} stars</div>
     		<div className='time'>Duration: {timeInHours} hours</div>
-      		<div className='notes'>{props.activity.notes}</div>
-	  		<div className='date'>Date: {props.activity.date}</div>
+      		<div className='notes'>{activity.notes}</div>
+	  		<div className='date'>Date: {activity.date}</div>
  
     		<div className='footer'>
-    			<button onClick={() => editActivity(props.activity.id)}
+    			<button onClick={() => editActivity(activity.id)}
     			 className='edit'>Edit</button>
-	    		<button onClick={() => deleteActivity(props.activity.id)}
+	    		<button onClick={() => deleteActivity(activity.id)}
 	    		 className='delete'>Delete</button>
     		</div>
-		</StyledActivityCard>
+			</StyledActivityCard>
+		// </animated.div>
 	);
 }
