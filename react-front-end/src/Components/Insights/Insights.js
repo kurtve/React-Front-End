@@ -54,7 +54,7 @@ export default function Insights(props) {
         margin: 15px auto 0 auto;
         border: 1px solid transparent;
         border-radius: 10px;
-        padding: 2% 4%;
+        padding: 5px 10px;
         color: white;
         text-transform: uppercase;
         &:hover {
