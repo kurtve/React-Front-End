@@ -27,6 +27,12 @@ export default function AddActivityForm(props) {
     props.history.push('/activities');
   }
 
+
+  // if user is not logged in, return to top
+  if (!props.status.loggedIn) {
+    props.history.push('/');
+  }
+
   return (
     <div className="formContainer">
       <h1>Add an activity</h1>

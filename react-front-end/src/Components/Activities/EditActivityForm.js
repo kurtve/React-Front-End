@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 export default function EditActivityForm(props) {
-  console.log(props)
 
   // get the id value from the path
   const id = Number.parseInt(props.match.params.id);
