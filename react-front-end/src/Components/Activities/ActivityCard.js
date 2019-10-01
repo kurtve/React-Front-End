@@ -86,7 +86,8 @@ const StyledActivityCard = styled.div `
 `;
 
 
-export default function ActivityCard({activity}) {
+export default function ActivityCard(props) {
+	const { activity } = props;
 
 	const deleteActivity = (id) => {
 		props.history.push(`/deleteactivity/${id}`);
@@ -106,7 +107,6 @@ export default function ActivityCard({activity}) {
 	// 		transform: 'translateY(50px)'
 	// 	}
 	// })
-
 
 	const timeInHours = Math.round(activity.time / 6) / 10;
 
