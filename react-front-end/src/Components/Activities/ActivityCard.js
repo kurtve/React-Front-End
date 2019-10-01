@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+// import { useSpring, animated } from 'react-spring'
 
 const StyledActivityCard = styled.div `
 	display: flex;
@@ -97,11 +97,21 @@ export default function ActivityCard(props) {
 		props.history.push(`/editactivity/${id}`);
 	};
 
-
+	// const props = useSpring({
+	// 	to: {
+	// 		opacity: 1,
+	// 		transform: 'translateY(0)'
+	// 	},
+	// 	from: {
+	// 		opacity: 0,
+	// 		transform: 'translateY(50px)'
+	// 	}
+	// })
 
 	const timeInHours = Math.round(activity.time / 6) / 10;
 
 	return (
+		// <animated.div style={props}>
     	<StyledActivityCard>
 	    	<div className='name'>{activity.name}</div>
     		<div className='category'>Category: {activity.category}</div>
@@ -117,5 +127,6 @@ export default function ActivityCard(props) {
 	    		 className='delete'>Delete</button>
     		</div>
 			</StyledActivityCard>
+		// </animated.div>
 	);
 }
