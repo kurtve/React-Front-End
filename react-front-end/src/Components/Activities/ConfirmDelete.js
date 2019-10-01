@@ -90,7 +90,6 @@ const StyledConfirmDelete = styled.div `
 
 export default function ConfirmDelete(props) {
 
-
 	// get the id value from the path
 	const id = Number.parseInt(props.match.params.id);
 
