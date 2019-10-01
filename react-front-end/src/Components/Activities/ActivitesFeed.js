@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 import ActivityCard from './ActivityCard';
 
-
 const StyledActivitiesFeed = styled.div `
 	display: flex;
 	flex-direction: column;

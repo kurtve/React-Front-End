@@ -14,9 +14,9 @@
 
 **Example User**
 <br />
-**Login**: David.Smith
+**Login**: design
 <br />
-**Password**: Passwrd9
+**Password**: yourlife
 
 ## Screenshots
 
@@ -25,7 +25,6 @@
 <b>Front End Built with:</b>
 
 - [React](https://reactjs.org/)
-- [Redux](https://redux.js.org/)
 - [React-Styled Components](https://www.styled-components.com/)
 
 ## Installation

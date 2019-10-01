@@ -76,6 +76,10 @@ const StyledConfirmDelete = styled.div `
 		font-size: 1.6rem;
 	}
 	
+	.date {
+		font-size: 1.6rem;
+	}
+	
 	.timestamps {
 		font-size: 1.0rem;
 		font-style: italic;
@@ -119,8 +123,7 @@ export default function ConfirmDelete(props) {
     		<div className='rating'>Rating: {activity.rating}</div>
     		<div className='time'>Duration: {activity.time} minutes</div>
     		<div className='notes'>{activity.notes}</div>
-    		<div className='timestamps'>Created: {activity.created.substring(0, 16)}
-    			{activity.updated && `Updated: ${activity.updated.substring(0, 16)}`}</div>
+	  		<div className='date'>Date: {activity.date}</div>
 
     		<div className='footer'>
     			<button onClick={cancel}
